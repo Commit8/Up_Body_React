@@ -4,6 +4,8 @@ import { useNavigate, useParams } from "react-router-dom";
 import { ClipLoader } from "react-spinners";
 import { ToastAlerta } from "../../../utils/ToastAlerta";
 import { atualizar, buscar, cadastrar } from "../../../services/Service";
+import type Categoria from "../../../models/Categoria";
+import { AuthContext } from "../../../contexts/AuthContext";
 
 function FormCategoria() {
   const navigate = useNavigate();

@@ -1,9 +1,11 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useContext, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { buscar, deletar } from "../services/Service";
-import { ToastAlerta } from "../utils/ToastAlerta";
+import { buscar, deletar } from "../../../services/Service";
+import { ToastAlerta } from "../../../utils/ToastAlerta";
 import { ClipLoader } from "react-spinners";
+import { AuthContext } from "../../../contexts/AuthContext";
+import type Categoria from "../../../models/Categoria";
 
 function DeletarCategoria() {
   const navigate = useNavigate();
