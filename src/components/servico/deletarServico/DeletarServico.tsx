@@ -48,7 +48,7 @@ function DeletarServico() {
     setIsLoading(true);
 
     try {
-      await deletar(`/servico/${id}`, {
+      await deletar(`/servicos/${id}`, {
         headers: {
           Authorization: token,
         },
