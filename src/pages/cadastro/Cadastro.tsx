@@ -18,7 +18,6 @@ function Cadastro() {
     foto: "",
     peso: 0,
     altura: 0,
-    servico: [],
   });
 
   useEffect(() => {
@@ -99,18 +98,24 @@ function Cadastro() {
         />
 
         <input
-          type="text"
           name="peso"
           placeholder="Peso em quilos (kg)"
+          step="0.01" 
+          type="number"
+          min="0"
+          inputMode="decimal"
           className="border rounded p-2"
           value={usuario.peso}
           onChange={atualizarEstado}
         />
 
         <input
-          type="text"
           name="altura"
           placeholder="Altura em centímetros (cm)"
+          step="0.01" 
+          type="number"
+          min="0"
+          inputMode="decimal"
           className="border rounded p-2"
           value={usuario.altura}
           onChange={atualizarEstado}
