@@ -5,6 +5,7 @@ import { SyncLoader } from "react-spinners";
 import CardServico from "../cardServico/CardServico";
 import type Servico from "../../../models/Servico";
 import { AuthContext } from "../../../contexts/AuthContext";
+import { ToastAlerta } from "../../../utils/ToastAlerta";
 
 function ListaServico() {
   const navigate = useNavigate();
@@ -15,6 +16,14 @@ function ListaServico() {
 
   const { usuario, handleLogout } = useContext(AuthContext);
   const token = usuario.token;
+
+   useEffect(() => {
+      if (token === "") {
+        ToastAlerta("Você precisa estar logado!", "info");
+        navigate("/login");
+      }
+    }, [token]);
+  
 
   useEffect(() => {
     buscarServicos();
