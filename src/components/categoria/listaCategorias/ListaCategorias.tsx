@@ -2,13 +2,14 @@
 import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { SyncLoader } from "react-spinners";
-import { AuthContext } from "../../../contexts/AuthContext";
-import type Categoria from "../../../models/Categoria";
 import { buscar } from "../../../services/Service";
 import { ToastAlerta } from "../../../utils/ToastAlerta";
 import DeletarCategoria from "../deletarCategoria/DeletarCategoria";
+import CardCategoria from "../cardCategoria/CardCategoria";        
+import { AuthContext } from "../../../contexts/AuthContext";
+import type Categoria from "../../../models/Categoria";
 
-function ListaCategorias(){
+function Listacategorias(){
 
     const navigate = useNavigate();
 
@@ -63,7 +64,7 @@ function ListaCategorias(){
   }
 
   return(
-    <div className="min-h-screen flex justify-center items-center bg-gradient-to-b from-gray-900 p-8">
+    <div className="min-h-screen flex justify-center items-center bg-linear-to-b from-gray-900 p-8">
     <div className="max-w-6xl w-full bg-[#1A1A1A]/90 rounded-3xl shadow-2xl p-10 text-center">
       
       {/* Título principal */}
@@ -80,7 +81,7 @@ function ListaCategorias(){
       <div className="flex justify-end mb-8">
         <button
           onClick={() => navigate("/cadastrarcategoria")}
-          className="bg-gradient-to-r from-orange-500 to-pink-500 text-white font-semibold px-5 py-2 rounded-lg hover:opacity-90 transition"
+          className="bg-linear-to-r from-orange-500 to-pink-500 text-white font-semibold px-5 py-2 rounded-lg hover:opacity-90 transition"
         >
           + Nova Atividade
         </button>
@@ -101,32 +102,13 @@ function ListaCategorias(){
       {/* Cards de categorias */}
       <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
         {categorias.map((categoria) => (
-          <div
+          <CardCategoria 
             key={categoria.id}
-            className="bg-[#222]/80 border border-[#FF7F50]/40 rounded-2xl p-6 shadow-md text-center flex flex-col justify-between transition hover:scale-105 hover:shadow-orange-500/30"
-          >
-            <div>
-              {/* Ícone genérico (opcional: personalize conforme tipo) */}
-              <div className="text-4xl mb-4 text-orange-400">🏋️‍♂️</div>
-              <h3 className="text-xl font-semibold text-white mb-2">{categoria.tipo}</h3>
-              <p className="text-gray-400 text-sm mb-6">{categoria.servico}</p>
-            </div>
-
-            <div className="flex justify-center gap-2">
-              <button
-                onClick={() => handleEditar(categoria.id)}
-                className="bg-gradient-to-r from-blue-500 to-purple-500 text-white text-sm px-3 py-1 rounded-md hover:opacity-90"
-              >
-                Editar
-              </button>
-              <button
-                onClick={() => handleDeletar(categoria.id)}
-                className="bg-gradient-to-r from-red-500 to-orange-500 text-white text-sm px-3 py-1 rounded-md hover:opacity-90"
-              >
-                Deletar
-              </button>
-            </div>
-          </div>
+            categoria={categoria}
+            tipo={categoria.tipo}
+            onEditar={() => handleEditar(categoria.id)} 
+            onDeletar={() => handleDeletar(categoria.id)}
+          />
         ))}
       </div>
     </div>
@@ -135,4 +117,4 @@ function ListaCategorias(){
 
 }
 
-export default ListaCategorias;
+export default Listacategorias;
