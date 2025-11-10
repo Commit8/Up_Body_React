@@ -87,6 +87,26 @@ function FormServico() {
     setIsLoading(false);
   }
 
+  async function finalizarServico() {
+    const terminoAtual = new Date().toISOString();
+    const servicoAtualizado = { ...servico, termino: terminoAtual };
+
+    setIsLoading(true);
+
+    try {
+      await atualizar(`/servico`, servicoAtualizado, setServico, {
+        headers: { Authorization: token },
+      });
+      ToastAlerta("Horário de término registrado!", "sucesso");
+      navigate("/servicos");
+    } catch (error: any) {
+      if (error.toString().includes("401")) handleLogout();
+      else ToastAlerta("Erro ao finalizar serviço.", "erro");
+    }
+
+    setIsLoading(false);
+  }
+
   return (
     <div className="flex justify-center items-center min-h-screen bg-[#121212] text-white p-6">
       <form
@@ -119,6 +139,16 @@ function FormServico() {
             className="p-2 rounded bg-[#2b2b2b] border border-gray-600"
           />
         </div>
+
+        {id !== undefined && (
+          <button
+            type="button"
+            onClick={finalizarServico}
+            className="w-full bg-emerald-600 hover:bg-emerald-700 py-2 rounded flex justify-center items-center"
+          >
+            Registrar Término
+          </button>
+        )}
 
         <button
           type="submit"
