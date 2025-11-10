@@ -2,11 +2,13 @@
 import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { SyncLoader } from "react-spinners";
+import { AuthContext } from "../../../contexts/AuthContext";
+import type Categoria from "../../../models/Categoria";
 import { buscar } from "../../../services/Service";
 import { ToastAlerta } from "../../../utils/ToastAlerta";
 import DeletarCategoria from "../deletarCategoria/DeletarCategoria";
 
-function Listacategorias(){
+function ListaCategorias(){
 
     const navigate = useNavigate();
 
@@ -107,7 +109,7 @@ function Listacategorias(){
               {/* Ícone genérico (opcional: personalize conforme tipo) */}
               <div className="text-4xl mb-4 text-orange-400">🏋️‍♂️</div>
               <h3 className="text-xl font-semibold text-white mb-2">{categoria.tipo}</h3>
-              <p className="text-gray-400 text-sm mb-6">{categoria.descricao}</p>
+              <p className="text-gray-400 text-sm mb-6">{categoria.servico}</p>
             </div>
 
             <div className="flex justify-center gap-2">
@@ -133,4 +135,4 @@ function Listacategorias(){
 
 }
 
-export default Listacategorias;
+export default ListaCategorias;
