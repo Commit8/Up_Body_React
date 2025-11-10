@@ -5,6 +5,8 @@ import { SyncLoader } from "react-spinners";
 import CardServico from "../cardServico/CardServico";
 import type Servico from "../../../models/Servico";
 import { AuthContext } from "../../../contexts/AuthContext";
+import { ToastAlerta } from "../../../utils/ToastAlerta";
+import ModalServico from "../modalServico/ModalServico";
 
 function ListaServico() {
   const navigate = useNavigate();
@@ -15,6 +17,14 @@ function ListaServico() {
 
   const { usuario, handleLogout } = useContext(AuthContext);
   const token = usuario.token;
+
+   useEffect(() => {
+      if (token === "") {
+        ToastAlerta("Você precisa estar logado!", "info");
+        navigate("/login");
+      }
+    }, [token]);
+  
 
   useEffect(() => {
     buscarServicos();
@@ -54,7 +64,11 @@ function ListaServico() {
             className="container mx-auto my-4 
                         grid grid-cols-1 md:grid-cols-2 
                         lg:grid-cols-3 gap-4"
-          ><Link to='/cadastrarservico'><button>+</button></Link>
+          ><p className="text-xl">Cadastrar Serviços</p>
+
+            <div className="flex justify-around gap-4">
+              <ModalServico />
+            </div>
             {servicos.map((servico) => (
               <CardServico key={servico.id} servico={servico}  />
             ))}
