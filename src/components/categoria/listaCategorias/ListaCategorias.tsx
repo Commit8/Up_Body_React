@@ -58,7 +58,7 @@ function Listacategorias(){
   //  Quando clicar em deletar: exclui e recarrega lista
   async function handleDeletar(id: number) {
     if (confirm("Tem certeza que deseja deletar esta categoria?")) {
-      await DeletarCategoria(`/categoria/${id}`);
+      navigate(`/deletarCategoria/${id}`);
       buscarCategorias(); 
     }
   }

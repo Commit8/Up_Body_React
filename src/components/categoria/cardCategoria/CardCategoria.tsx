@@ -8,7 +8,7 @@ interface CardCategoriaProps {
   onDeletar: () => void;
 }
 
-function CardCategoria({ categoria, onEditar}: CardCategoriaProps) {
+function CardCategoria({ categoria, onEditar, onDeletar}: CardCategoriaProps) {
   return (
       <div
     key={categoria.id}

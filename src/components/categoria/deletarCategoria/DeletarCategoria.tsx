@@ -20,7 +20,7 @@ function DeletarCategoria() {
 
   async function buscarPorId(id: string) {
     try {
-      await buscar(`/categorias/${id}`, setCategoria, {
+      await buscar(`/categoria/${id}`, setCategoria, {
         headers: {
           Authorization: token,
         },
@@ -49,7 +49,7 @@ function DeletarCategoria() {
     setIsLoading(true);
 
     try {
-      await deletar(`/categorias/${id}`, {
+      await deletar(`/categoria/${id}`, {
         headers: {
           Authorization: token,
         },
@@ -67,7 +67,7 @@ function DeletarCategoria() {
   }
 
   function retornar() {
-    navigate("/categorias");
+    navigate("/categoria");
   }
 
   return (
