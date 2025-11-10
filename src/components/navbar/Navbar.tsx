@@ -58,7 +58,7 @@ function Navbar() {
         </div>
 
         <div className="hidden sm:flex gap-8 items-center ">
-          <Link to="/home" className="px-2 py-1 rounded-md border-2 border-transparent hover:border-black hover:bg-black
+          <Link to="/servicos" className="px-2 py-1 rounded-md border-2 border-transparent hover:border-black hover:bg-black
              hover:text-white transition-all" onClick={() => setIsNavOpen(false)}>
             Serviços
           </Link>
@@ -67,7 +67,7 @@ function Navbar() {
             Categorias
           </Link>
           <Link
-            to="/servicos"
+            to="/login"
             className="px-2 py-1 rounded-md border-2 border-transparent hover:border-black hover:bg-black 
             hover:text-white transition-all" onClick={() => setIsNavOpen(false)}>
             Login
