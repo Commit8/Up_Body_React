@@ -1,5 +1,5 @@
-import React, { useContext, useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useContext, useEffect, useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { buscar } from "../../../services/Service";
 import { SyncLoader } from "react-spinners";
 import CardServico from "../cardServico/CardServico";
@@ -14,17 +14,17 @@ function ListaServico() {
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const [servicos, setServicos] = useState<Servico[]>([]);
+  const reloadTrigger = useRef<() => void>(() => {});
 
   const { usuario, handleLogout } = useContext(AuthContext);
   const token = usuario.token;
 
-   useEffect(() => {
-      if (token === "") {
-        ToastAlerta("Você precisa estar logado!", "info");
-        navigate("/login");
-      }
-    }, [token]);
-  
+  useEffect(() => {
+    if (token === "") {
+      ToastAlerta("Você precisa estar logado!", "info");
+      navigate("/login");
+    }
+  }, [token]);
 
   useEffect(() => {
     buscarServicos();
@@ -37,14 +37,19 @@ function ListaServico() {
       await buscar("/servicos", setServicos, {
         headers: { Authorization: token },
       });
-    } catch (error: any) {
-      if (error.toString().includes("401")) {
+    } catch (error) {
+      if ((error as Error).toString().includes("401")) {
         handleLogout();
       }
     } finally {
       setIsLoading(false);
     }
   }
+
+  useEffect(() => {
+    reloadTrigger.current = buscarServicos;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [token]);
 
   return (
     <>
@@ -64,13 +69,16 @@ function ListaServico() {
             className="container mx-auto my-4 
                         grid grid-cols-1 md:grid-cols-2 
                         lg:grid-cols-3 gap-4"
-          ><p className="text-xl">Cadastrar Serviços</p>
+          >
+            <p className="text-xl">Cadastrar Serviços</p>
 
             <div className="flex justify-around gap-4">
-              <ModalServico />
+              <ModalServico
+                onServicoCadastrado={() => reloadTrigger.current()}
+              />
             </div>
             {servicos.map((servico) => (
-              <CardServico key={servico.id} servico={servico}  />
+              <CardServico key={servico.id} servico={servico} />
             ))}
           </div>
         </div>

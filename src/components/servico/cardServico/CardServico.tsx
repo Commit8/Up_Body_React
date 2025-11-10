@@ -33,6 +33,16 @@ function CardServico({ servico }: CardServicosProps) {
               timeStyle: "medium",
             }).format(new Date(servico.inicio))}
           </p>
+          {servico?.termino !== null ? (
+            <p>
+              {new Intl.DateTimeFormat("pt-br", {
+                dateStyle: "medium",
+                timeStyle: "medium",
+              }).format(new Date(servico?.termino))}
+            </p>
+          ) : (
+            <p>Em andamento</p>
+          )}
         </div>
       </div>
       {usuario.id === servico.usuario.id && (

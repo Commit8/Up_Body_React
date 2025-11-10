@@ -14,7 +14,11 @@ import type Servico from "../../../models/Servico";
 import { atualizar, buscar, cadastrar } from "../../../services/Service";
 import { ToastAlerta } from "../../../utils/ToastAlerta";
 
-function FormServico() {
+interface FormServicoprops {
+  onServicoCadastrado?: () => void;
+}
+
+function FormServico({ onServicoCadastrado }: FormServicoprops) {
   const navigate = useNavigate();
   const { id } = useParams<{ id: string }>();
   const { usuario, handleLogout } = useContext(AuthContext);
@@ -38,7 +42,7 @@ function FormServico() {
 
   async function buscarPorId(id: string) {
     try {
-       await buscar(`/servicos/${id}`, setServico, {
+      await buscar(`/servicos/${id}`, setServico, {
         headers: { Authorization: token },
       });
     } catch (error: any) {
@@ -62,11 +66,12 @@ function FormServico() {
       ToastAlerta("Você precisa estar logado!", "info");
       navigate("/login");
     }
-  }, [token]);
+  }, [token, navigate]);
 
   useEffect(() => {
     buscarCategorias();
     if (id !== undefined) buscarPorId(id);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id]);
 
   useEffect(() => {
@@ -75,6 +80,7 @@ function FormServico() {
       categoria,
       usuario: { id: usuario.id } as any,
     }));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [categoria]);
 
   function atualizarEstado(e: ChangeEvent<HTMLInputElement>) {
@@ -102,6 +108,7 @@ function FormServico() {
           headers: { Authorization: token },
         });
         ToastAlerta("Serviço cadastrado!", "sucesso");
+        onServicoCadastrado?.();
       }
 
       navigate("/servicos");
@@ -201,7 +208,13 @@ function FormServico() {
           type="submit"
           className="rounded bg-indigo-600 hover:bg-indigo-800 text-white font-bold w-full py-2 flex justify-center"
         >
-          {isLoading ? <ClipLoader color="#ffffff" size={24} /> : id ? "Atualizar" : "Cadastrar"}
+          {isLoading ? (
+            <ClipLoader color="#ffffff" size={24} />
+          ) : id ? (
+            "Atualizar"
+          ) : (
+            "Cadastrar"
+          )}
         </button>
       </form>
     </div>
