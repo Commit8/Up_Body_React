@@ -10,7 +10,8 @@ function FormCategoria() {
 
   const [categoria, setCategoria] = useState<Categoria>({
     id: 0,
-    tipo: ""
+    tipo: "",
+    servico: []
   });
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
@@ -97,13 +98,13 @@ function FormCategoria() {
 
       <form className="w-1/2 flex flex-col gap-4" onSubmit={gerarNovaCategoria}>
         <div className="flex flex-col gap-2">
-          <label htmlFor="descricao">Descrição da categoria</label>
+          <label htmlFor="descricao">Descrição do Serviço</label>
           <input
             type="text"
             placeholder="Descreva aqui sua categoria"
-            name="descricao"
+            name="servico"
             className="border-2 border-slate-700 rounded p-2"
-            value={categoria.descricao}
+            value={categoria.servico}
             onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
           />
 
@@ -111,7 +112,7 @@ function FormCategoria() {
           <input
             type="text"
             placeholder="Descreva aqui o tipo de exercício"
-            name="descricao"
+            name="tipo"
             className="border-2 border-slate-700 rounded p-2"
             value={categoria.tipo}
             onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
