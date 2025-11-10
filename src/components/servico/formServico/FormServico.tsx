@@ -28,15 +28,7 @@ function FormServico() {
     servico: [],
   });
 
-  const [servico, setServico] = useState<Servico>({
-    id: 0,
-    plano: "",
-    valor: 0,
-    inicio: "",
-    termino: "",
-    categoria: categoria,
-    usuario: { id: usuario.id } as any,
-  });
+  const [servico, setServico] = useState<Servico>({} as Servico);
 
   async function buscarCategorias() {
     try {
