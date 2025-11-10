@@ -51,7 +51,7 @@ function FormCategoria() {
   }
 
   function retornar() {
-    navigate("/categoria");
+    navigate("/categorias");
   }
 
   async function gerarNovaCategoria(e: FormEvent<HTMLFormElement>) {
@@ -96,9 +96,9 @@ function FormCategoria() {
 
       <form className="w-1/2 flex flex-col gap-4" onSubmit={gerarNovaCategoria}>
         <div className="flex flex-col gap-2">
-          <label htmlFor="descricao">Descrição do Serviço</label>
+          <label htmlFor="tipo">Diga o tipo de exercicio</label>
 
-          <label htmlFor="descricao">Tipo</label>
+          <label htmlFor="tipo">Tipo</label>
           <input
             type="text"
             placeholder="Descreva aqui o tipo de exercício"
