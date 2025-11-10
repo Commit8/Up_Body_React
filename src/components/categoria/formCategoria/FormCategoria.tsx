@@ -10,11 +10,7 @@ import { AuthContext } from "../../../contexts/AuthContext";
 function FormCategoria() {
   const navigate = useNavigate();
 
-  const [categoria, setCategoria] = useState<Categoria>({
-    id: 0,
-    tipo: "",
-    servico: []
-  });
+  const [categoria, setCategoria] = useState<Categoria>({} as Categoria);
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const { usuario, handleLogout } = useContext(AuthContext);
@@ -24,7 +20,7 @@ function FormCategoria() {
 
   async function buscarPorId(id: string) {
     try {
-      await buscar(`/categorias/${id}`, setCategoria, {
+      await buscar(`/categoria/${id}`, setCategoria, {
         headers: { Authorization: token },
       });
     } catch (error: any) {
@@ -55,7 +51,7 @@ function FormCategoria() {
   }
 
   function retornar() {
-    navigate("/categorias");
+    navigate("/categoria");
   }
 
   async function gerarNovaCategoria(e: FormEvent<HTMLFormElement>) {
@@ -64,7 +60,7 @@ function FormCategoria() {
 
     if (id !== undefined) {
       try {
-        await atualizar(`/categorias`, categoria, setCategoria, {
+        await atualizar(`/categoria`, categoria, setCategoria, {
           headers: { Authorization: token },
         });
         ToastAlerta("A categoria foi atualizada com sucesso!", "sucesso");
@@ -77,7 +73,7 @@ function FormCategoria() {
       }
     } else {
       try {
-        await cadastrar(`/categorias`, categoria, setCategoria, {
+        await cadastrar(`/categoria`, categoria, setCategoria, {
           headers: { Authorization: token },
         });
         ToastAlerta("A categoria foi cadastrada com sucesso!", "sucesso");
@@ -101,14 +97,6 @@ function FormCategoria() {
       <form className="w-1/2 flex flex-col gap-4" onSubmit={gerarNovaCategoria}>
         <div className="flex flex-col gap-2">
           <label htmlFor="descricao">Descrição do Serviço</label>
-          <input
-            type="text"
-            placeholder="Descreva aqui sua categoria"
-            name="servico"
-            className="border-2 border-slate-700 rounded p-2"
-            value={categoria.servico}
-            onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
-          />
 
           <label htmlFor="descricao">Tipo</label>
           <input

@@ -1,5 +1,7 @@
+import type Servico from "./Servico";
+
 export default interface Categoria {
     id: number;
     tipo: string;
-    servico: string;
+    servico?: Servico[] | null;
 }
