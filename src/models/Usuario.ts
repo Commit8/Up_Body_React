@@ -6,5 +6,5 @@ export default interface Usuario {
     foto?: string;
     peso: number;
     altura: number;
-    serviço: string;
+    servico: string;
 }
