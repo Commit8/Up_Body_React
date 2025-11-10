@@ -22,11 +22,7 @@ function FormServico() {
 
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [categorias, setCategorias] = useState<Categoria[]>([]);
-  const [categoria, setCategoria] = useState<Categoria>({
-    id: 0,
-    tipo: "",
-    servico: [],
-  });
+  const [categoria, setCategoria] = useState<Categoria>({} as Categoria);
 
   const [servico, setServico] = useState<Servico>({} as Servico);
 
