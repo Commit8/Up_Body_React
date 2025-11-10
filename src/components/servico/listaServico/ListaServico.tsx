@@ -2,6 +2,9 @@ import React, { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { buscar } from "../../../services/Service";
 import { SyncLoader } from "react-spinners";
+import CardServico from "../cardServico/CardServico";
+import type Servico from "../../../models/Servico";
+import { AuthContext } from "../../../contexts/AuthContext";
 
 function ListaServico() {
   const navigate = useNavigate();
@@ -10,7 +13,7 @@ function ListaServico() {
 
   const [servicos, setServicos] = useState<Servico[]>([]);
 
-  const { usuario, handleLogout } = useContext(AuthContex);
+  const { usuario, handleLogout } = useContext(AuthContext);
   const token = usuario.token;
 
   useEffect(() => {
@@ -44,7 +47,7 @@ function ListaServico() {
         <div className="container flex flex-col mx-2">
           {!isLoading && servicos.length === 0 && (
             <span className="text-3xl text-center my-8">
-              Nenhuma Postagem foi encontrada!
+              Nenhum Serviço foi encontrado!
             </span>
           )}
           <div
@@ -53,7 +56,7 @@ function ListaServico() {
                         lg:grid-cols-3 gap-4"
           >
             {servicos.map((servico) => (
-              <CardServico key={servico.id} servico={servico} />
+              <CardServico key={servico.id} servico={servico}  />
             ))}
           </div>
         </div>

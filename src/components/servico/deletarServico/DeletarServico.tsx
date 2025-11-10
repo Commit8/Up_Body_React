@@ -3,6 +3,8 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { buscar, deletar } from '../../../services/Service';
 import { ToastAlerta } from '../../../utils/ToastAlerta';
 import { ClipLoader } from 'react-spinners';
+import type Servico from '../../../models/Servico';
+import { AuthContext } from '../../../contexts/AuthContext';
 
 function DeletarServico() {
   const navigate = useNavigate();
@@ -12,7 +14,7 @@ function DeletarServico() {
 
   const { id } = useParams<{ id: string }>();
 
-  const { usuario, handleLogout } = useContext(AuthContex);
+  const { usuario, handleLogout } = useContext(AuthContext);
   const token = usuario.token;
 
   async function buscarPorId(id: string) {
@@ -80,7 +82,7 @@ function DeletarServico() {
           Serviço
         </header>
         <div className="p-4">
-          <p className="text-xl h-full">{servico.palno}</p>
+          <p className="text-xl h-full">{servico.plano}</p>
           <p>{servico.valor}</p>
         </div>
         <div className="flex">
