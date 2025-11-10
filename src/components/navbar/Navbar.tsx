@@ -1,9 +1,22 @@
 import { ListIcon, XIcon } from "@phosphor-icons/react";
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useContext, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../contexts/AuthContext";
+import { ToastAlerta } from "../../utils/ToastAlerta";
 
 function Navbar() {
   const [isNavOpen, setIsNavOpen] = useState(false);
+
+    const navigate = useNavigate();
+
+    const {usuario, handleLogout } = useContext(AuthContext)
+
+  function logout() {
+        
+        handleLogout()
+        ToastAlerta("O usuário foi desconectado com sucesso!", "info")
+        navigate('/')
+    }
 
   return (
     <div
@@ -53,6 +66,14 @@ function Navbar() {
               >
                 Login
               </Link>
+              <Link
+                to=""
+                className="hover:text-[#27292D] transition-colors"
+                onClick={() => { logout();
+                  setIsNavOpen(false)}}
+              >
+                Sair
+              </Link>
             </div>
           </div>
         </div>
@@ -72,6 +93,15 @@ function Navbar() {
             hover:text-white transition-all" onClick={() => setIsNavOpen(false)}>
             Login
           </Link>
+            <Link
+                to=""
+                className="px-2 py-1 rounded-md border-2 border-transparent hover:border-black hover:bg-black 
+            hover:text-white transition-all"
+                 onClick={() => { logout();
+                  setIsNavOpen(false)}}
+              >
+                Sair
+              </Link>
         </div>
       </div>
       <style>
