@@ -1,3 +1,4 @@
+import type Categoria from "./Categoria";
 import type Usuario from "./Usuario";
 
 export default interface Servico {
@@ -7,5 +8,5 @@ export default interface Servico {
     termino: string;
     valor: number;
     usuario: Usuario;
-
+    categoria: Categoria| null;
 }
