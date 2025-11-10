@@ -16,7 +16,7 @@ function Cadastro() {
     usuario: "",
     senha: "",
     foto: "",
-    peso: "",
+    peso: 0,
     altura: 0,
     servico: [],
   });
