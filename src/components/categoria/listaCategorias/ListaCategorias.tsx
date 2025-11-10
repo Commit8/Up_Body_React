@@ -38,7 +38,7 @@ function Listacategorias(){
       try {
         setIsLoading(true);
 
-        await buscar('/categorias', setCategorias, {
+        await buscar('/categoria', setCategorias, {
           headers: { Authorization: token },
         });
       } catch (error: any) { 
@@ -58,7 +58,7 @@ function Listacategorias(){
   //  Quando clicar em deletar: exclui e recarrega lista
   async function handleDeletar(id: number) {
     if (confirm("Tem certeza que deseja deletar esta categoria?")) {
-      await DeletarCategoria(`/categorias/${id}`);
+      await DeletarCategoria(`/categoria/${id}`);
       buscarCategorias(); 
     }
   }
