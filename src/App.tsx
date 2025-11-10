@@ -11,6 +11,7 @@ import DeletarCategoria from "./components/categoria/deletarCategoria/DeletarCat
 import ListaServico from "./components/servico/listaServico/ListaServico";
 import FormServico from "./components/servico/formServico/FormServico";
 import DeletarServico from "./components/servico/deletarServico/DeletarServico";
+import Footer from "./components/footer/Footer";
 
 function App() {
   return (
@@ -21,7 +22,8 @@ function App() {
           <Navbar />
           <div className="min-h-[80vh]">
             <Routes>
-              <Route path='/' element ={<Login />} />       
+              <Route path='/' element ={<Login />} />
+              <Route path='/login' element ={<Login />} />             
               <Route path='/home' element ={<HomePage />} />        
               <Route path='/cadastro' element ={<Cadastro />} />
               <Route path="/categorias" element={<ListaCategorias />} />
@@ -33,9 +35,10 @@ function App() {
               <Route path="/editarservico/:id" element={<FormServico />} />
               <Route path="/deletarservico/:id" element={<DeletarServico />} />
               {/* <Route path="/perfil" element={<Perfil />} /> */}
+              
            </Routes>
           </div>
-          {/* <Footer /> */}
+          <Footer />
         </BrowserRouter>
       </AuthProvider>
     </>
