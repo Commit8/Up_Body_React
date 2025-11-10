@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { buscar } from "../../../services/Service";
 import { SyncLoader } from "react-spinners";
 import CardServico from "../cardServico/CardServico";
@@ -54,7 +54,7 @@ function ListaServico() {
             className="container mx-auto my-4 
                         grid grid-cols-1 md:grid-cols-2 
                         lg:grid-cols-3 gap-4"
-          >
+          ><Link to='/cadastrarservico'><button>+</button></Link>
             {servicos.map((servico) => (
               <CardServico key={servico.id} servico={servico}  />
             ))}
