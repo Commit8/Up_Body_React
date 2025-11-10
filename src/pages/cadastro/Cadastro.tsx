@@ -16,8 +16,8 @@ function Cadastro() {
     usuario: "",
     senha: "",
     foto: "",
-    peso: 0,
-    altura: 0,
+    peso: "",
+    altura: "",
   });
 
   useEffect(() => {
@@ -111,7 +111,7 @@ function Cadastro() {
 
         <input
           name="altura"
-          placeholder="Altura em centímetros (cm)"
+          placeholder="Altura em centímetros (M)"
           step="0.01" 
           type="number"
           min="0"
@@ -141,7 +141,7 @@ function Cadastro() {
 
         <button
           type="submit"
-          className="bg-gradient-to-r from-orange-400 to-purple-600 text-white font-semibold py-2 rounded flex justify-center"
+          className="bg-linear-to-r from-orange-400 to-purple-600 text-white font-semibold py-2 rounded flex justify-center"
         >
           {isLoading ? <ClipLoader size={24} color="#fff" /> : "Cadastrar"}
         </button>
