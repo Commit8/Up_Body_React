@@ -38,7 +38,7 @@ function FormServico() {
 
   async function buscarPorId(id: string) {
     try {
-       await buscar(`/servico/${id}`, setServico, {
+       await buscar(`/servicos/${id}`, setServico, {
         headers: { Authorization: token },
       });
     } catch (error: any) {
@@ -93,12 +93,12 @@ function FormServico() {
 
     try {
       if (id !== undefined) {
-        await atualizar(`/servico`, servico, setServico, {
+        await atualizar(`/servicos`, servico, setServico, {
           headers: { Authorization: token },
         });
         ToastAlerta("Serviço atualizado!", "sucesso");
       } else {
-        await cadastrar(`/servico`, servico, setServico, {
+        await cadastrar(`/servicos`, servico, setServico, {
           headers: { Authorization: token },
         });
         ToastAlerta("Serviço cadastrado!", "sucesso");
@@ -124,7 +124,7 @@ function FormServico() {
     setIsLoading(true);
 
     try {
-      await atualizar(`/servico`, servicoAtualizado, setServico, {
+      await atualizar(`/servicos`, servicoAtualizado, setServico, {
         headers: { Authorization: token },
       });
       ToastAlerta("Término registrado!", "sucesso");
