@@ -1,10 +1,10 @@
 import { useContext, useEffect, useState, type ChangeEvent, type FormEvent } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { ClipLoader } from "react-spinners";
-import { toast } from "react-toastify";
 import { AuthContext } from "../../../contexts/AuthContext";
 import type Categoria from "../../../models/Categoria";
 import { atualizar, buscar } from "../../../services/Service";
+import { ToastAlerta } from "../../../utils/ToastAlerta";
 
 function EditarCategoria() {
   const navigate = useNavigate();
@@ -31,7 +31,7 @@ function EditarCategoria() {
 
   useEffect(() => {
     if (token === "") {
-      toast.error("Você precisa estar logado!");
+      ToastAlerta("Você precisa estar logado!", "erro");
       navigate("/");
     }
   }, [token]);
@@ -58,11 +58,11 @@ function EditarCategoria() {
         headers: { Authorization: token },
       });
 
-      toast.success("Categoria atualizada com sucesso!");
+      ToastAlerta("Categoria atualizada com sucesso!", "sucesso");
       navigate("/categorias");
     } catch (error: any) {
       if (error.toString().includes("401")) handleLogout();
-      toast.error("Erro ao atualizar categoria.");
+      ToastAlerta("Erro ao atualizar categoria.", "erro");
     }
 
     setIsLoading(false);
