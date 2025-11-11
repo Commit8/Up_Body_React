@@ -73,7 +73,7 @@ function Cadastro() {
       {/* Overlay para escurecer */}
       <div className="absolute inset-0 bg-black/30" />
       
-      <form onSubmit={cadastrar} className="relative z-10 flex flex-col gap-3 w-3/4 max-w-md bg-black/50 backdrop-blur-md p-6 rounded-xl shadow-lg">
+      <form onSubmit={cadastrar} className="relative z-10 flex flex-col gap-3 w-3/4 max-w-md bg-black/50 backdrop-blur-md p-6 rounded-xl shadow-lg items-center">
         <h2 className="text-4xl font-bold text-slate-100 text-center">
           Criar Conta
         </h2>
@@ -82,7 +82,7 @@ function Cadastro() {
           type="text"
           name="nome"
           placeholder="Nome completo"
-          className="border border-2 border-white text-white placeholder:text-gray-400 rounded p-2"
+          className="border border-2 border-white text-white placeholder:text-gray-400 rounded p-2 w-full"
           value={usuario.nome}
           onChange={atualizarEstado}
         />
@@ -91,7 +91,7 @@ function Cadastro() {
           type="text"
           name="usuario"
           placeholder="Usuário (login)"
-          className="border-2 border-white text-white placeholder:text-gray-400 rounded p-2"
+          className="border-2 border-white text-white placeholder:text-gray-400 rounded p-2 w-full"
           value={usuario.usuario}
           onChange={atualizarEstado}
         />
@@ -100,7 +100,7 @@ function Cadastro() {
           type="text"
           name="foto"
           placeholder="URL da foto"
-          className="border-2 border-white text-white placeholder:text-gray-400 rounded p-2"
+          className="border-2 border-white text-white placeholder:text-gray-400 rounded p-2 w-full"
           value={usuario.foto}
           onChange={atualizarEstado}
         />
@@ -112,7 +112,7 @@ function Cadastro() {
           type="number"
           min="0"
           inputMode="decimal"
-          className="border-2 border-white text-white placeholder:text-gray-400 rounded p-2"
+          className="border-2 border-white text-white placeholder:text-gray-400 rounded p-2 w-full"
           value={usuario.peso}
           onChange={atualizarEstado}
         />
@@ -124,7 +124,7 @@ function Cadastro() {
           type="number"
           min="0"
           inputMode="decimal"
-          className="border-2 border-white text-white placeholder:text-gray-400 rounded p-2"
+          className="border-2 border-white text-white placeholder:text-gray-400 rounded p-2 w-full"
           value={usuario.altura}
           onChange={atualizarEstado}
         />
@@ -133,7 +133,7 @@ function Cadastro() {
           type="password"
           name="senha"
           placeholder="Senha (mín. 8 caracteres)"
-          className="border-2 border-white text-white placeholder:text-gray-400 rounded p-2"
+          className="border-2 border-white text-white placeholder:text-gray-400 rounded p-2 w-full"
           value={usuario.senha}
           onChange={atualizarEstado}
         />
@@ -142,21 +142,21 @@ function Cadastro() {
           type="password"
           name="confirmarSenha"
           placeholder="Confirmar senha"
-          className="border-2 border-white text-white placeholder:text-gray-400 rounded p-2"
+          className="border-2 border-white text-white placeholder:text-gray-400 rounded p-2 w-full"
           value={confirmarSenha}
           onChange={handleConfirmarSenha}
         />
 
         <button
           type="submit"
-          className="bg-gradient-to-r from-red-500 via-yellow-500 to-green-500 text-white font-semibold py-2 rounded flex justify-center hover:scale-105 cursor-pointer"
+          className="bg-gradient-to-r from-red-500 via-yellow-500 to-green-500 text-white font-semibold py-2 rounded flex justify-center hover:scale-105 w-full cursor-pointer"
         >
           {isLoading ? <ClipLoader size={24} color="#fff" /> : "Cadastrar"}
         </button>
 
         <button
           type="button"
-          className="text-slate-400 underline text-center cursor-pointer"
+          className="text-slate-400 underline text-center cursor-pointer w-1/3"
           onClick={() => navigate("/login")}
         >
           Já tenho conta
