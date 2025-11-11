@@ -80,7 +80,6 @@ function FormServico({ onServicoCadastrado }: FormServicoprops) {
       categoria,
       usuario: { id: usuario.id } as any,
     }));
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [categoria]);
 
   function atualizarEstado(e: ChangeEvent<HTMLInputElement>) {
@@ -145,87 +144,95 @@ function FormServico({ onServicoCadastrado }: FormServicoprops) {
 
   return (
     <div
-  className="min-h-screen w-full flex items-center justify-center bg-cover bg-center bg-no-repeat"
-  style={{
-    backgroundImage: `linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url('https://i.postimg.cc/KjzFZvyX/personal-training-amberg-gross.jpg')`
-  }}
->
-  <div className="backdrop-blur-sm bg-white/75 p-10 rounded-xl shadow-lg w-[90%] max-w-[600px]">
+      className="flex items-center justify-center w-full min-h-screen p-6"
+      style={
+        id !== undefined
+          ? {
+              backgroundImage: `linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url('https://i.postimg.cc/KjzFZvyX/personal-training-amberg-gross.jpg')`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+            }
+          : {}
+      }
+    >
+      <div className="bg-white shadow-lg rounded-xl p-10 w-[90%] max-w-[600px]">
+        <h1 className="text-4xl text-center my-8 text-black">
+          {id !== undefined ? "Editar Serviço" : "Cadastrar Serviço"}
+        </h1>
 
-      <h1 className="text-4xl text-center my-8">
-        {id !== undefined ? "Editar Serviço" : "Cadastrar Serviço"}
-      </h1>
-
-      <form className="flex flex-col w-1/2 gap-4 w-full" onSubmit={enviar}>
-        <div className="flex flex-col gap-2">
-          <label>Plano</label>
-          <input
-            type="text"
-            name="plano"
-            value={servico.plano}
-            onChange={atualizarEstado}
-            required
-            className="border-2 border-slate-700 rounded p-2"
-          />
-        </div>
-
-        <div className="flex flex-col gap-2">
-          <label>Valor (R$)</label>
-          <input
-            type="number"
-            step="0.01"
-            name="valor"
-            value={servico.valor}
-            onChange={atualizarEstado}
-            required
-            className="border-2 border-slate-700 rounded p-2"
-          />
-        </div>
-
-        <div className="flex flex-col gap-2">
-          <p>Categoria</p>
-          <select
-            className="border p-2 border-slate-800 rounded"
-            onChange={(e) => buscarCategoriaPorId(e.currentTarget.value)}
-          >
-            <option value="" disabled selected>
-              Selecione uma categoria
-            </option>
-
-            {categorias.map((categoria) => (
-              <option key={categoria.id} value={categoria.id}>
-                {categoria.tipo}
-              </option>
-            ))}
-          </select>
-        </div>
-
-        {id !== undefined && (
-          <button
-            type="button"
-            onClick={finalizarServico}
-            className="rounded bg-emerald-600 hover:bg-emerald-800 
-                    text-white font-bold w-full py-2 flex justify-center"
-          >
-            Registrar Término
-          </button>
-        )}
-
-        <button
-          type="submit"
-          className="rounded bg-indigo-600 hover:bg-indigo-800 text-white font-bold w-full py-2 flex justify-center"
+        <form
+          className="flex flex-col gap-4 w-full text-black"
+          onSubmit={enviar}
         >
-          {isLoading ? (
-            <ClipLoader color="#ffffff" size={24} />
-          ) : id ? (
-            "Atualizar"
-          ) : (
-            "Cadastrar"
+          <div className="flex flex-col gap-2">
+            <label>Plano</label>
+            <input
+              type="text"
+              name="plano"
+              value={servico.plano}
+              onChange={atualizarEstado}
+              required
+              className="border-2 border-slate-700 rounded p-2 text-black"
+            />
+          </div>
+
+          <div className="flex flex-col gap-2">
+            <label>Valor (R$)</label>
+            <input
+              type="number"
+              step="0.01"
+              name="valor"
+              value={servico.valor}
+              onChange={atualizarEstado}
+              required
+              className="border-2 border-slate-700 rounded p-2 text-black"
+            />
+          </div>
+
+          <div className="flex flex-col gap-2 text-black">
+            <p>Categoria</p>
+            <select
+              className="border p-2 border-slate-800 rounded text-black"
+              onChange={(e) => buscarCategoriaPorId(e.currentTarget.value)}
+            >
+              <option value="" disabled selected>
+                Selecione uma categoria
+              </option>
+
+              {categorias.map((categoria) => (
+                <option key={categoria.id} value={categoria.id}>
+                  {categoria.tipo}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          {id !== undefined && (
+            <button
+              type="button"
+              onClick={finalizarServico}
+              className="rounded bg-emerald-600 hover:bg-emerald-800 
+                      text-white font-bold w-full py-2 flex justify-center"
+            >
+              Registrar Término
+            </button>
           )}
-        </button>
-      </form>
+
+          <button
+            type="submit"
+            className="rounded bg-indigo-600 hover:bg-indigo-800 text-white font-bold w-full py-2 flex justify-center"
+          >
+            {isLoading ? (
+              <ClipLoader color="#ffffff" size={24} />
+            ) : id ? (
+              "Atualizar"
+            ) : (
+              "Cadastrar"
+            )}
+          </button>
+        </form>
+      </div>
     </div>
-</div>
   );
 }
 
