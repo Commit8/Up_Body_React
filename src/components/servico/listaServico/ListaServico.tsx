@@ -52,7 +52,7 @@ function ListaServico() {
   }, [token]);
 
   return (
-    <div className="justify-center items-center bg-linear-to-b from-[#111] via-[#1a1a1a] to-black min-h-screen">
+    <div className=" justify-center items-center bg-linear-to-b from-[#111] via-[#1a1a1a] to-black min-h-screen min-w-screen">
       <div className="relative w-full h-[220px] md:h-[260px] overflow-hidden flex items-center justify-center">
         {/* Imagem de fundo */}
         <img
@@ -77,7 +77,7 @@ function ListaServico() {
         </div>
       </div>
 
-      <div className="relative w-full max-w-7xl  p-15 text-center">
+      <div className="relative w-full max-w-7xl justify-center items-center p-15 text-center container mx-auto">
         {/* Loader */}
         {isLoading && (
           <div className="flex justify-center items-center h-40">
@@ -93,7 +93,7 @@ function ListaServico() {
         )}
 
         {/* Cards de servico */}
-        <div className="container mx-auto grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {servicos.map((servico) => (
             <CardServico key={servico.id} servico={servico} />
           ))}
