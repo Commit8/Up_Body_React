@@ -90,8 +90,8 @@ function FormCategoria() {
   }
   return (
     <div className="w-full h-screen flex items-center justify-center mx-auto pb-20 bg-[url('https://ik.imagekit.io/Disturbedmoss/SenhoresPraticandoExercicio.png?updatedAt=1762871096155')] bg-cover bg-center bg-no-repeat">
-      <div className="w-[4/5] flex flex-col justify-center items-center px-5 pb-10 bg-[#222]/80 border border-[#FF7F50]/40 rounded-2xl">
-        <h1 className="text-4xl text-center my-8 w-full font-semibold text-[#FAF9F6]">
+      <div className="w-[4/5] flex flex-col justify-center items-center px-5 pb-10 bg-linear-to-b from-[#111] via-[#1a1a1a] to-black opacity-90 rounded-2xl">
+        <h1 className="font-bold text-4xl text-center my-4 text-[#FAF9F6]">
         {id === undefined ? "Cadastrar categoria" : "Editar categoria"}
       </h1>
 
@@ -103,37 +103,13 @@ function FormCategoria() {
             type="text"
             placeholder="Descreva aqui o tipo de exercício"
             name="tipo"
-            className="border-2 border-slate-800 rounded p-2 text-[#FAF9F6]"
+            className="border-b border-slate-400 rounded p-2 text-[#FAF9F6]"
             value={categoria.tipo}
             onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
           />
         </div>
         <button
-          className="
-            relative 
-            w-1/2 
-            py-2 
-            mx-auto 
-            flex 
-            justify-center 
-            rounded-md 
-          text-slate-100 
-            bg-linear-to-r 
-          from-blue-500 
-          to-purple-500 
-            transition-all 
-            duration-500 
-            ease-out
-            before:absolute 
-            before:inset-0 
-            before:rounded-md 
-            before:border-2 
-            before:border-transparent 
-            before:transition-all 
-            before:duration-500 
-          hover:before:border-[rgb(246,171,59)]
-            hover:shadow-[0_0_20px_rgba(246,171,59,0.6),0_0_40px_rgba(168,10,10,0.4)]
-          "
+          className="relative w-1/2 py-2 mx-auto flex justify-center rounded-md text-slate-100 bg-green-600 hover:bg-green-800"
           type="submit"
         >
           {isLoading ? (
