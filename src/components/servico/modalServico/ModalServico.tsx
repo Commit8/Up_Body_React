@@ -24,13 +24,13 @@ function ModalServico({ onServicoCadastrado }: ModalServicoprops) {
         Novo Serviço
       </button>
 
-      <Popup
+      <Popup 
         modal
         open={isOpen}
         onClose={() => setIsOpen(false)}
         contentStyle={{
           borderRadius: "1rem",
-          padding: "4rem",
+          padding: "2rem",
           background: "linear-gradient(to right, #FFEB3B, #4CAF50)",
           color: "white",
         }}
