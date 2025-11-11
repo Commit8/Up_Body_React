@@ -12,6 +12,8 @@ import ListaServico from "./components/servico/listaServico/ListaServico";
 import FormServico from "./components/servico/formServico/FormServico";
 import DeletarServico from "./components/servico/deletarServico/DeletarServico";
 import Footer from "./components/footer/Footer";
+import Perfil from "./pages/perfil/Perfil";
+import PerfilPlus from "./pages/perfilPlus/perfilPlus";
 
 function App() {
   return (
@@ -34,7 +36,7 @@ function App() {
               <Route path="/cadastrarservico" element={<FormServico />} />
               <Route path="/editarservico/:id" element={<FormServico />} />
               <Route path="/deletarservico/:id" element={<DeletarServico />} />
-              {/* <Route path="/perfil" element={<Perfil />} /> */}
+              <Route path="/perfilplus/:id" element={<PerfilPlus />} />
               
            </Routes>
           </div>

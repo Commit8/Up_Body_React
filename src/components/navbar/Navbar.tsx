@@ -7,16 +7,15 @@ import { ToastAlerta } from "../../utils/ToastAlerta";
 function Navbar() {
   const [isNavOpen, setIsNavOpen] = useState(false);
 
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
-    const {usuario, handleLogout } = useContext(AuthContext)
+  const { usuario, handleLogout } = useContext(AuthContext);
 
   function logout() {
-        
-        handleLogout()
-        ToastAlerta("O usuário foi desconectado com sucesso!", "info")
-        navigate('/')
-    }
+    handleLogout();
+    ToastAlerta("O usuário foi desconectado com sucesso!", "info");
+    navigate("/");
+  }
 
   return (
     <div
@@ -27,7 +26,8 @@ function Navbar() {
         <Link
           to="/home"
           className={`flex items-center space-x-2 text-3xl bg-linear-to-r from-red-500 via-yellow-500 to-green-500 bg-clip-text text-transparent text font-bold ${
-            !isNavOpen ? "block" : "hidden"} sm:flex`}
+            !isNavOpen ? "block" : "hidden"
+          } sm:flex`}
         >
           <img
             src="https://i.postimg.cc/9QvR6ksk/4-removebg-preview-1.png"
@@ -66,11 +66,22 @@ function Navbar() {
               >
                 Login
               </Link>
+
+              <Link
+                to="/perfil"
+                className="hover:text-[#27292D] transition-colors"
+                onClick={() => setIsNavOpen(false)}
+              >
+                Perfil
+              </Link>
+
               <Link
                 to=""
                 className="hover:text-[#27292D] transition-colors"
-                onClick={() => { logout();
-                  setIsNavOpen(false)}}
+                onClick={() => {
+                  logout();
+                  setIsNavOpen(false);
+                }}
               >
                 Sair
               </Link>
@@ -79,29 +90,50 @@ function Navbar() {
         </div>
 
         <div className="hidden sm:flex gap-8 items-center ">
-          <Link to="/servicos" className="px-2 py-1 rounded-md border-2 border-transparent hover:border-black hover:bg-black
-             hover:text-white transition-all" onClick={() => setIsNavOpen(false)}>
+          <Link
+            to="/servicos"
+            className="px-2 py-1 rounded-md border-2 border-transparent hover:border-black hover:bg-black
+             hover:text-white transition-all"
+            onClick={() => setIsNavOpen(false)}
+          >
             Serviços
           </Link>
-          <Link to="/categorias" className="px-2 py-1 rounded-md border-2 border-transparent hover:border-black hover:bg-black
-           hover:text-white transition-all" onClick={() => setIsNavOpen(false)}>
+          <Link
+            to="/categorias"
+            className="px-2 py-1 rounded-md border-2 border-transparent hover:border-black hover:bg-black
+           hover:text-white transition-all"
+            onClick={() => setIsNavOpen(false)}
+          >
             Categorias
           </Link>
           <Link
             to="/login"
             className="px-2 py-1 rounded-md border-2 border-transparent hover:border-black hover:bg-black 
-            hover:text-white transition-all" onClick={() => setIsNavOpen(false)}>
+            hover:text-white transition-all"
+            onClick={() => setIsNavOpen(false)}
+          >
             Login
           </Link>
-            <Link
-                to=""
-                className="px-2 py-1 rounded-md border-2 border-transparent hover:border-black hover:bg-black 
+          <Link
+            to={`/perfilplus/${usuario.id}`}
+            className="px-2 py-1 rounded-md border-2 border-transparent hover:border-black hover:bg-black 
             hover:text-white transition-all"
-                 onClick={() => { logout();
-                  setIsNavOpen(false)}}
-              >
-                Sair
-              </Link>
+            onClick={() => setIsNavOpen(false)}
+          >
+            perfil
+          </Link>
+           
+          <Link
+            to=""
+            className="px-2 py-1 rounded-md border-2 border-transparent hover:border-black hover:bg-black 
+            hover:text-white transition-all"
+            onClick={() => {
+              logout();
+              setIsNavOpen(false);
+            }}
+          >
+            Sair
+          </Link>
         </div>
       </div>
       <style>
