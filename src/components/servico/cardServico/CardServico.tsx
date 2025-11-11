@@ -12,11 +12,12 @@ function CardServico({ servico }: CardServicosProps) {
 
   return (
     <div className="relative p-0.5 bg-linear-to-r from-orange-400 to-pink-600 rounded-2xl">
-      <div className="bg-gray-800 flex flex-col rounded-2xl overflow-hidden justify-between ">
+      <div className="bg-gray-800 flex flex-col rounded-2xl overflow-hidden justify-between h-full">
         <div className="text-white">
           <div className="flex w-full  py-2 px-4 items-center gap-4 ">
             <img
               src={servico.usuario?.foto || "https://i.imgur.com/pK6vSCy.png"}
+              onError={(e) => e.currentTarget.src = "https://i.imgur.com/pK6vSCy.png"}
               className="h-12 rounded-full"
               alt={servico.usuario?.foto}
             />
