@@ -36,13 +36,13 @@ function CardCategoria({ categoria, onEditar, onDeletar }: CardCategoriaProps) {
       <div className="flex justify-center gap-2">
         <button
           onClick={() => onEditar(categoria.id)}
-          className="bg-green-600 text-white text-sm px-3 py-1 rounded-md hover:bg-green-800"
+          className="bg-green-600 text-white text-sm px-3 py-1 rounded-md hover:bg-green-800 cursor-pointer"
         >
           Editar
         </button>
         <button
           onClick={() => onDeletar(categoria.id)}
-          className="bg-orange-700 text-white text-sm px-3 py-1 rounded-md hover:bg-orange-900"
+          className="bg-orange-700 text-white text-sm px-3 py-1 rounded-md hover:bg-orange-900 cursor-pointer"
         >
           Deletar
         </button>

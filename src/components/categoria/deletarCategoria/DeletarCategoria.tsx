@@ -94,13 +94,13 @@ function DeletarCategoria() {
 
           <div className="flex justify-center gap-2">
             <button
-              className="text-white px-5 w-full py-1 rounded-md hover:opacity-90 bg-green-600 hover:bg-green-800"
+              className="text-white px-5 w-full py-1 rounded-md hover:opacity-90 bg-green-600 hover:bg-green-800 cursor-pointer"
               onClick={retornar}
             >
               Não
             </button>
             <button
-              className="text-white px-5 w-full py-1 rounded-md hover:opacity-90 bg-orange-700 hover:bg-orange-900"
+              className="text-white px-5 w-full py-1 rounded-md hover:opacity-90 bg-orange-700 hover:bg-orange-900 cursor-pointer"
               onClick={deletarCategoria}
             >
               {isLoading ? (

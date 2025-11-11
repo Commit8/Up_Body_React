@@ -53,7 +53,7 @@ function Listacategorias() {
   }
 
   return (
-    <div className="justify-center items-center bg-gradient-to-b from-[#111] via-[#1a1a1a] to-black min-h-screen">
+    <div className="justify-center items-center bg-linear-to-b from-[#111] via-[#1a1a1a] to-black min-h-screen">
       
       {/* 🔹 Seção de topo responsiva */}
       <div className="relative w-full h-[220px] sm:h-[260px] md:h-[320px] lg:h-[400px] overflow-hidden flex items-center justify-center">
@@ -65,11 +65,11 @@ function Listacategorias() {
         />
 
         {/* Overlay escuro */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 to-black/75"></div>
+        <div className="absolute inset-0 bg-linear-to-b from-black/40 to-black/75"></div>
 
         {/* Texto do topo */}
         <div className="relative z-10 text-center px-4 sm:px-6 md:px-10">
-          <h2 className="text-2xl sm:text-3xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-yellow-500 to-green-500 drop-shadow-lg">
+          <h2 className="text-2xl sm:text-3xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-linear-to-r from-yellow-500 to-green-500 drop-shadow-lg">
             TRANSFORME SEU CORPO E MENTE
           </h2>
 
@@ -82,9 +82,9 @@ function Listacategorias() {
           <div className="flex justify-center mt-6 sm:mt-8 mb-6 sm:mb-8">
             <button
               onClick={() => navigate("/cadastrarcategoria")}
-              className="bg-gradient-to-r from-orange-700 to-green-600 text-white font-semibold 
+              className="bg-linear-to-r from-orange-700 to-green-600 text-white font-semibold 
               px-6 sm:px-8 md:px-10 py-2 sm:py-3 rounded-xl 
-              shadow-md hover:shadow-lg hover:scale-105 transition-all duration-300 ease-out text-sm sm:text-base"
+              shadow-md hover:shadow-lg hover:scale-105 transition-all duration-300 ease-out text-sm sm:text-base cursor-pointer"
             >
               + Nova Atividade
             </button>
