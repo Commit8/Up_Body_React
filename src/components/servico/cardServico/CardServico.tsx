@@ -11,30 +11,30 @@ function CardServico({ servico }: CardServicosProps) {
   const { usuario } = useContext(AuthContext);
 
   return (
-    <div className="border-slate-900 border flex flex-col rounded overflow-hidden justify-between">
+    <div className="bg-[#FF7F50] border-slate-900 border flex flex-col rounded overflow-hidden justify-between">
       <div>
-        <div className="flex w-full bg-indigo-400 py-2 px-4 items-center gap-4">
+        <div className="flex w-full  py-2 px-4 items-center gap-4">
           <img
             src={servico.usuario?.foto || "https://i.imgur.com/pK6vSCy.png"}
             className="h-12 rounded-full"
             alt={servico.usuario?.foto}
           />
           <h3 className="text-lg font-bold text-center uppercase">
-            {servico.usuario.foto}
+            {servico.usuario.nome}
           </h3>
         </div>
         <div className="p-4">
-          <h4 className="text-lg font-semibold uppercase">{servico.plano}</h4>
-          <p>{servico.categoria?.tipo}</p>
-          <p>Tema: {servico.valor}</p>
+          <h4 className="text-lg font-semibold uppercase">plano - {servico.plano}</h4>
+          <p>Categoria: {servico.categoria?.tipo}</p>
+          <p>Valor: {servico.valor}</p>
           <p>
-            {new Intl.DateTimeFormat("pt-br", {
+           Inicio: {new Intl.DateTimeFormat("pt-br", {
               dateStyle: "medium",
               timeStyle: "medium",
             }).format(new Date(servico.inicio))}
           </p>
           {servico?.termino !== null ? (
-            <p>
+            <p>Termino: 
               {new Intl.DateTimeFormat("pt-br", {
                 dateStyle: "medium",
                 timeStyle: "medium",

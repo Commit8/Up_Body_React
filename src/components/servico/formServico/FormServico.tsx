@@ -102,6 +102,7 @@ function FormServico({ onServicoCadastrado }: FormServicoprops) {
           headers: { Authorization: token },
         });
         ToastAlerta("Serviço atualizado!", "sucesso");
+        navigate("/servicos");
       } else {
         await cadastrar(`/servicos`, servico, setServico, {
           headers: { Authorization: token },
@@ -109,8 +110,6 @@ function FormServico({ onServicoCadastrado }: FormServicoprops) {
         ToastAlerta("Serviço cadastrado!", "sucesso");
         onServicoCadastrado?.();
       }
-
-      navigate("/servicos");
     } catch {
       ToastAlerta("Erro ao salvar serviço.", "erro");
     }
@@ -195,12 +194,16 @@ function FormServico({ onServicoCadastrado }: FormServicoprops) {
               className="border p-2 border-slate-800 rounded text-white"
               onChange={(e) => buscarCategoriaPorId(e.currentTarget.value)}
             >
-              <option className="text-black" value="" disabled selected >
+              <option className="text-black" value="" disabled selected>
                 Selecione uma categoria
               </option>
 
               {categorias.map((categoria) => (
-                <option className="text-black" key={categoria.id} value={categoria.id}>
+                <option
+                  className="text-black"
+                  key={categoria.id}
+                  value={categoria.id}
+                >
                   {categoria.tipo}
                 </option>
               ))}
