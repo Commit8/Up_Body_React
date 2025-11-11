@@ -52,7 +52,7 @@ function ListaServico() {
   }, [token]);
 
   return (
-    <div className="flex flex-col justify-center items-center bg-linear-to-b from-[#111] via-[#1a1a1a] to-black min-h-screen">
+    <div className="justify-center items-center bg-linear-to-b from-[#111] via-[#1a1a1a] to-black min-h-screen">
       <div className="relative w-full h-[220px] md:h-[260px] overflow-hidden flex items-center justify-center">
         {/* Imagem de fundo */}
         <img
@@ -66,8 +66,8 @@ function ListaServico() {
 
         {/* Texto do topo */}
         <div className="relative z-10 text-center px-6">
-          <h2 className="text-3xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-linear-to-r from-orange-400 to-pink-600 drop-shadow-lg">
-            TRANSFORME SEU CORPO E MENTE
+          <h2 className="text-3xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-linear-to-r from-yellow-500 to-green-500 drop-shadow-lg">
+            SERVIÇOS QUE CUIDAM DE VOCÊ
           </h2>
           <p className="mt-4 text-gray-200 text-lg max-w-2x0 mx-auto">
             Encontre as melhores atividades físicas e programas de bem-estar
@@ -80,17 +80,17 @@ function ListaServico() {
         </div>
       </div>
 
-      <div className="relative w-full max-w-7xl rounded- bg-[#1A1A1A]/90 p-15 text-center">
+      <div className="relative w-full max-w-7xl  p-15 text-center">
         {/* Loader */}
         {isLoading && (
           <div className="flex justify-center items-center h-40">
-            <SyncLoader color="#FF7F50" size={20} />
+            <SyncLoader color="#79BE48" size={20} />
           </div>
         )}
 
         {/* Mensagem de vazio */}
         {!isLoading && servicos.length === 0 && (
-          <p className="text-gray-400 text-lg mt-10">
+          <p className="text-transparent bg-clip-text bg-linear-to-r from-yellow-500 to-green-500 drop-shadow-lg text-lg mt-10">
             Nenhuma atividade encontrada!
           </p>
         )}
