@@ -107,7 +107,7 @@ function Cadastro() {
 
         <input
           name="peso"
-          placeholder="Peso em quilos (kg)"
+          placeholder="Peso (kg)"
           step="0.01" 
           type="number"
           min="0"
