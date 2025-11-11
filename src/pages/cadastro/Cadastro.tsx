@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { type ChangeEvent, type FormEvent, useEffect, useState } from "react";
 import  { useNavigate } from "react-router-dom";
 import { ClipLoader } from "react-spinners";
