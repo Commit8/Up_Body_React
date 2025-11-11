@@ -56,7 +56,7 @@ function ListaServico() {
       <div className="relative w-full h-[220px] md:h-[260px] overflow-hidden flex items-center justify-center">
         {/* Imagem de fundo */}
         <img
-          src="https://i.imgur.com/QX46BaC.png"
+          src="https://i.postimg.cc/MpGmR2dS/Gemini-Generated-Image-4ywdlt4ywdlt4ywd.png"
           alt="Atividades físicas e bem-estar"
           className="absolute inset-0 w-full h-109 object-cover opacity-70"
         />
@@ -69,10 +69,7 @@ function ListaServico() {
           <h2 className="text-3xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-linear-to-r from-yellow-500 to-green-500 drop-shadow-lg">
             SERVIÇOS QUE CUIDAM DE VOCÊ
           </h2>
-          <p className="mt-4 text-gray-200 text-lg max-w-2x0 mx-auto">
-            Encontre as melhores atividades físicas e programas de bem-estar
-            para o seu estilo de vida.
-          </p>
+
           {/* Botão de cadastrar nova categoria */}
           <div className="flex justify-center mt-10 mb-8 ">
             <ModalServico onServicoCadastrado={() => reloadTrigger.current()} />
@@ -96,7 +93,7 @@ function ListaServico() {
         )}
 
         {/* Cards de servico */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="container mx-auto grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {servicos.map((servico) => (
             <CardServico key={servico.id} servico={servico} />
           ))}
