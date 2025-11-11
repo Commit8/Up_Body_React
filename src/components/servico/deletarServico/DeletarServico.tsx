@@ -1,10 +1,10 @@
-import React, { useContext, useEffect, useState } from 'react'
-import { useNavigate, useParams } from 'react-router-dom';
-import { buscar, deletar } from '../../../services/Service';
-import { ToastAlerta } from '../../../utils/ToastAlerta';
-import { ClipLoader } from 'react-spinners';
-import type Servico from '../../../models/Servico';
-import { AuthContext } from '../../../contexts/AuthContext';
+import React, { useContext, useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import { buscar, deletar } from "../../../services/Service";
+import { ToastAlerta } from "../../../utils/ToastAlerta";
+import { ClipLoader } from "react-spinners";
+import type Servico from "../../../models/Servico";
+import { AuthContext } from "../../../contexts/AuthContext";
 
 function DeletarServico() {
   const navigate = useNavigate();
@@ -33,7 +33,7 @@ function DeletarServico() {
 
   useEffect(() => {
     if (token === "") {
-      ToastAlerta("Você precisa estar logado" ,'info');
+      ToastAlerta("Você precisa estar logado", "info");
       navigate("/");
     }
   }, [token]);
@@ -53,12 +53,12 @@ function DeletarServico() {
           Authorization: token,
         },
       });
-      ToastAlerta("Serviço apagada com sucesso",'sucesso');
+      ToastAlerta("Serviço apagada com sucesso", "sucesso");
     } catch (error: any) {
       if (error.toString().includes("401")) {
         handleLogout();
       } else {
-        ToastAlerta("Erro ao deletar a serviço.",'erro');
+        ToastAlerta("Erro ao deletar a serviço.", "erro");
       }
     }
     setIsLoading(false);
@@ -70,42 +70,44 @@ function DeletarServico() {
   }
 
   return (
-    <div className="container w-1/3 mx-auto">
-      <h1 className="text-4xl text-center my-4">Deletar Servico</h1>
+    <div className="w-full pt-22 h-screen bg-[url('https://images.unsplash.com/photo-1758506971667-fbaa8942258a?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1170')] bg-cover bg-center">
+      <div className="container w-1/3 mx-auto">
+        <h1 className="text-5xl text-white font-bold text-center my-4 pt-20">Deletar Serviço</h1>
 
-      <p className="text-center font-semibold mb-4">
-        Você tem certeza de que deseja apagar o serviço a seguir ?
-      </p>
+        <p className="text-center pt-5 text-white  font-bold mb-4">
+          Você tem certeza de que deseja apagar o serviço a seguir ?
+        </p>
 
-      <div className="border flex flex-col rounded-2xl overflow-hidden justify-between">
-        <header className="py-2 px-6 bg-indigo-600 text-white font-bold text-2xl">
-          Serviço
-        </header>
-        <div className="p-4">
-          <p className="text-xl h-full">{servico.plano}</p>
-          <p>{servico.valor}</p>
-        </div>
-        <div className="flex">
-          <button
-            className="text-slate-100 bg-red-400 hover:bg-red-600 w-full py-2"
-            onClick={retornar}
-          >
-            Não
-          </button>
-          <button
-            className="text-slate-100 bg-indigo-400 hover:bg-indigo-600 w-full py-2"
-            onClick={deletarServico}
-          >
-            {isLoading ? (
-              <ClipLoader color="#ffffff" size={24} />
-            ) : (
-              <span>Sim</span>
-            )}
-          </button>
+        <div className="border-b-white flex flex-col rounded-2xl overflow-hidden justify-between">
+          <header className="py-2 px-6 bg-white text-black font-bold text-2xl">
+            Serviço
+          </header>
+          <div className="p-4">
+            <p className="text-xl text-white h-full">{servico.plano}</p>
+            <p className="text-white">R$ {servico.valor}</p>
+          </div>
+          <div className="flex">
+            <button
+              className="text-slate-100 bg-black hover:bg-white hover:text-black w-full py-2"
+              onClick={retornar}
+            >
+              Não
+            </button>
+            <button
+              className="text-slate-100 bg-red-700 hover:bg-red-600 w-full py-2"
+              onClick={deletarServico}
+            >
+              {isLoading ? (
+                <ClipLoader color="#ffffff" size={24} />
+              ) : (
+                <span>Sim</span>
+              )}
+            </button>
+          </div>
         </div>
       </div>
     </div>
   );
 }
 
-export default DeletarServico
+export default DeletarServico;

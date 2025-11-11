@@ -12,8 +12,8 @@ import ListaServico from "./components/servico/listaServico/ListaServico";
 import FormServico from "./components/servico/formServico/FormServico";
 import DeletarServico from "./components/servico/deletarServico/DeletarServico";
 import Footer from "./components/footer/Footer";
-import Perfil from "./pages/perfil/Perfil";
-import PerfilPlus from "./pages/perfilPlus/perfilPlus";
+import PerfilPlus from "./pages/perfilPlus/PerfilPlus";
+
 
 function App() {
   return (
