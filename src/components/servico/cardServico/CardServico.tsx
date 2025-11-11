@@ -59,13 +59,13 @@ function CardServico({ servico }: CardServicosProps) {
           <div className="flex">
             <Link
               to={`/editarservico/${servico.id}`}
-              className="w-full text-white bg-linear-to-r from-[#308733] to-[#02dd09] hover:from-[#479a49] hover:to-[#44ff00] transition-all duration-300 flex items-center justify-center py-2"
+              className="w-full text-white bg-green-600 hover:green-800 flex items-center justify-center py-2"
             >
               <button>Editar</button>
             </Link>
             <Link
               to={`/deletarservico/${servico.id}`}
-              className="text-white bg-linear-to-r from-[#eabe0f] to-[#e67e22] hover:from-[#ffcf00] hover:to-[#ff9840] transition-all duration-300 w-full flex items-center justify-center"
+              className="text-white bg-orange-700 hover:orange-900 w-full flex items-center justify-center"
             >
               <button>Deletar</button>
             </Link>

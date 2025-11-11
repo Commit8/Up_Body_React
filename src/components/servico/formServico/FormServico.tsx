@@ -215,7 +215,7 @@ function FormServico({ onServicoCadastrado }: FormServicoprops) {
               type="button"
               onClick={finalizarServico}
               className="w-full py-2 rounded-lg text-white font-semibold
-             bg-gradient-to-r  from-amber-500 via-orange-500 to-yellow-400  
+             bg-gradient-to-r from-amber-500 via-orange-500 to-yellow-400  
              hover:opacity-90 transition-all"
             >
               Registrar Término
