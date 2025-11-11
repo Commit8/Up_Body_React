@@ -64,28 +64,45 @@ function Listacategorias(){
   }
 
   return(
-    <div className="min-h-screen flex justify-center items-center bg-linear-to-b from-gray-900 p-8">
-    <div className="max-w-6xl w-full bg-[#1A1A1A]/90 rounded-3xl shadow-2xl p-10 text-center">
-      
-      {/* Título principal */}
-      <div className="mb-10">
-        <h2 className="text-3xl font-bold text-white tracking-wide mb-2">
-          EXPLORE NOSSOS SERVIÇOS
-        </h2>
-        <p className="text-gray-400">
-          Atividades Físicas e Programas de Bem-Estar
-        </p>
-      </div>
 
-      {/* Botão de cadastrar nova categoria */}
-      <div className="flex justify-end mb-8">
-        <button
-          onClick={() => navigate("/cadastrarcategoria")}
-          className="bg-linear-to-r from-orange-500 to-pink-500 text-white font-semibold px-5 py-2 rounded-lg hover:opacity-90 transition"
-        >
-          + Nova Atividade
-        </button>
+     <div className="flex flex-col justify-center items-center bg-gradient-to-b from-[#111] via-[#1a1a1a] to-black min-h-screen">
+      <div className="relative w-full h-[220px] md:h-[260px] overflow-hidden flex items-center justify-center">
+        {/* Imagem de fundo */}
+        <img
+          src="https://i.imgur.com/QX46BaC.png"
+          alt="Atividades físicas e bem-estar"
+          className="absolute inset-0 w-full h-109 object-cover opacity-70"
+        />
+
+        {/* Overlay escuro */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 to-black/80">
+        </div>
+
+        {/* Texto do topo */}
+        <div className="relative z-10 text-center px-6">
+          <h2 className="text-3xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-pink-600 drop-shadow-lg">
+            TRANSFORME SEU CORPO E MENTE
+          </h2>
+          <p className="mt-4 text-gray-200 text-lg max-w-2x0 mx-auto">
+            Encontre as melhores atividades físicas e programas de bem-estar
+           para o seu estilo de vida.
+          </p>
+                  {/* Botão de cadastrar nova categoria */}
+          <div className="flex justify-center mt-10 mb-8">
+            <button
+              onClick={() => navigate("/cadastrarcategoria")}
+              className="bg-gradient-to-r from-orange-500 to-pink-700 text-white font-semibold px-8 py-2 rounded-xl 
+              shadow-md hover:shadow-lg hover:scale-105 transition-all duration-300 ease-out"
+            >
+              + Nova Atividade
+            </button>
+          </div>
+        </div>
+        
       </div>
+      
+
+    <div className="relative w-full max-w-7xl rounded- bg-[#1A1A1A]/90 p-15 text-center">
 
       {/* Loader */}
       {isLoading && (
@@ -96,7 +113,7 @@ function Listacategorias(){
 
       {/* Mensagem de vazio */}
       {!isLoading && categorias.length === 0 && (
-        <p className="text-gray-300 text-lg mt-10">Nenhuma atividade encontrada!</p>
+        <p className="text-gray-400 text-lg mt-10">Nenhuma atividade encontrada!</p>
       )}
 
       {/* Cards de categorias */}
