@@ -250,7 +250,7 @@ function PerfilPlus() {
                 type="button"
                 onClick={() => id && calcularImc(id)}
                 disabled={isLoading}
-                className="bg-gradient-to-r from-green-400 via-blue-900 to-green-400 mb-6 text-white font-bold py-2 px-4 rounded-lg disabled:opacity-50 hover:scale-105 transition-transform duration-300"
+                className="bg-gradient-to-r from-green-400 via-blue-900 to-green-400 mb-6 text-white font-bold py-2 px-4 rounded-lg disabled:opacity-50 hover:scale-105 transition-transform duration-300 cursor-pointer"
               >
                 {isLoading ? "Buscando..." : "Calcular IMC"}
               </button>

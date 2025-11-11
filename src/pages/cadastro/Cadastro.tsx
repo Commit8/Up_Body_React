@@ -149,14 +149,14 @@ function Cadastro() {
 
         <button
           type="submit"
-          className="bg-gradient-to-r from-red-500 via-yellow-500 to-green-500 text-white font-semibold py-2 rounded flex justify-center hover:scale-105"
+          className="bg-gradient-to-r from-red-500 via-yellow-500 to-green-500 text-white font-semibold py-2 rounded flex justify-center hover:scale-105 cursor-pointer"
         >
           {isLoading ? <ClipLoader size={24} color="#fff" /> : "Cadastrar"}
         </button>
 
         <button
           type="button"
-          className="text-slate-400 underline text-center"
+          className="text-slate-400 underline text-center cursor-pointer"
           onClick={() => navigate("/login")}
         >
           Já tenho conta
