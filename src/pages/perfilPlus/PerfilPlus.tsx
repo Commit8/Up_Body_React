@@ -191,12 +191,13 @@ function PerfilPlus() {
 
           {/* Formulário */}
           <div className="w-full md:w-1/2 text-white">
-            <h2 className="text-xl font-semibold mb-2">Atualizar dados</h2>
+            <h2 className="text-xl font-semibold mb-2"></h2>
             <form className="flex flex-col gap-3">
               <label>Nome</label>
               <input
                 type="text"
-                name="nome"
+                name="nome" 
+                disabled
                 placeholder="Nome completo"
                 className="border border-slate-700 rounded p-2 bg-black/40 text-white"
                 value={usuarioLogado.nome}
@@ -208,7 +209,7 @@ function PerfilPlus() {
                 type="text"
                 name="usuario"
                 disabled
-                className="border border-slate-700 rounded p-2 bg-gray-800 text-gray-400"
+                className="border border-slate-700 rounded p-2 bg-black/40 text-gray-400"
                 value={usuarioLogado.usuario}
               />
 
@@ -216,6 +217,7 @@ function PerfilPlus() {
               <input
                 type="text"
                 name="foto"
+                disabled
                 placeholder="URL da foto"
                 className="border border-slate-700 rounded p-2 bg-black/40 text-white"
                 value={usuarioLogado.foto}
@@ -227,6 +229,7 @@ function PerfilPlus() {
                 name="peso"
                 type="number"
                 step="0.01"
+                disabled
                 className="border border-slate-700 rounded p-2 bg-black/40 text-white"
                 value={usuarioLogado.peso}
                 onChange={atualizarEstado}
@@ -237,6 +240,7 @@ function PerfilPlus() {
                 name="altura"
                 type="number"
                 step="0.01"
+                disabled
                 className="border border-slate-700 rounded p-2 bg-black/40 text-white"
                 value={usuarioLogado.altura}
                 onChange={atualizarEstado}
