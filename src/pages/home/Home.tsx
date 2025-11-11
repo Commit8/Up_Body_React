@@ -4,7 +4,7 @@ export default function HomePage() {
   return (
     <>
       {/*Tela inicial */}
-      <div className="flex flex-col justify-center items-center bg-[url(https://i.imgur.com/pW2jhT9.png)]">
+      <div className="flex flex-col justify-center items-center bg-[url('https://img.freepik.com/fotos-gratis/cimento-velho-grunge_74190-7100.jpg')]">
 
         <div className="relative w-full py-20 md:py-0 md:h-[550px] overflow-hidden">
 
@@ -14,9 +14,9 @@ export default function HomePage() {
         loop
         muted
         playsInline
-        className="absolute inset-0 w-full h-full object-cover"
+        className="absolute inset-0 w-full h-full object-cover grayscale hover:grayscale-75"
         >
-        <source src="https://i.imgur.com/k9xbWLP.mp4" type="video/mp4" />
+        <source className="grayscale" src="https://i.imgur.com/k9xbWLP.mp4" type="video/mp4" />
         </video>
 
           {/* Conteúdo */}
@@ -37,25 +37,25 @@ export default function HomePage() {
            <h3 className="pt-5 text-4xl font-bold mb-8">O que dizem nossos usuários</h3>
 
         <div className="pt-10 grid text-2xl md:grid-cols-4 gap-6 px-6 md:px-20">
-       <div className="bg-amber-500 rounded-2xl shadow p-10">
+       <div className="bg-orange-400/50 border-3 flex flex-col justify-between text-slate-800 rounded-2xl p-10">
       <p>“Vivo mais saudável e com mais energia!”</p>
       <span className="block font-bold mt-3">Ana S.</span>
         </div>
-       <div className="bg-yellow-300 rounded-2xl shadow p-10">
+       <div className="bg-yellow-300/50 flex flex-col justify-between text-slate-800 border-3 rounded-2xl shadow p-10">
       <p>“O Up Body mudou a minha rotina! Uso todos os dias!”</p>
       <span className="block font-bold mt-3">Roger P.</span>
         </div>
-       <div className="bg-emerald-600 rounded-2xl shadow p-10">
+       <div className="bg-green-600/50 flex flex-col justify-between text-slate-800  border-3 rounded-2xl shadow p-10">
       <p>“Hoje treino mais e gasto menos. Estou feliz e satisfeito.”</p>
       <span className="block font-bold mt-3">Paulo R.</span>
     </div>
-    <div className="bg-blue-500 rounded-2xl shadow p-10">
+    <div className="bg-blue-400/30 flex flex-col justify-between rounded-2xl border-3 text-slate-800  p-10">
       <p>“Simples, intuitivo e motivador. Abrace essa ideia também!”</p>
       <span className="block font-bold mt-3">Letícia T.</span>
         </div>
          </div>
       
-          <p className="p-10 text-[30px] opacity-70 mt-5  mx-auto leading-relaxed">
+          <p className="p-10 text-[30px] opacity-70 mt-5 text-black mx-auto leading-relaxed">
             A comunidade Up Body cresce todos os dias, com pessoas que acreditam no poder da evolução pessoal!
           </p>
         </section>
@@ -63,9 +63,9 @@ export default function HomePage() {
       </div>
 
       {/* COMO FUNCIONA */}
-      <div className="w-4/5 mx-auto border-t-4 border-dashed border-red-500 md:pt-2 flex flex-col justify-center items-center">
+      <div className="w-full mx-auto  md:pt-2 flex flex-col justify-center items-center bg-[url('https://media.discordapp.net/attachments/1403376913074094097/1437901312900468736/4EAA1CD4-5315-469B-950A-48FEE8B998FE.png?ex=6914ed73&is=69139bf3&hm=e27bec86c7bbc8cba7217024223742b1ae851b5c377b426eacd4150f687cf592&=&format=webp&quality=lossless&width=750&height=439')]">
         <div className="w-4/5 md:my-10 p-5 justify-center">
-          <h3 className="text-4xl font-bold mb-8 text-center text-shadow-md"> Como funciona </h3>
+          <h3 className="text-4xl font-bold mb-8 text-center text-white text-shadow-md"> Como funciona </h3>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 justify-center">
 
