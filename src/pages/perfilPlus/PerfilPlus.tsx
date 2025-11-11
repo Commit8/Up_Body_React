@@ -1,4 +1,9 @@
-import { useContext, useEffect, useState, type ChangeEvent } from "react";
+import {
+  useContext,
+  useEffect,
+  useState,
+  type ChangeEvent,
+} from "react";
 import { useParams } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthContext";
 import type Usuario from "../../models/Usuario";
@@ -13,26 +18,14 @@ function PerfilPlus() {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [imc, setImc] = useState<number | null>(null);
 
-  // Calcular IMC no front sempre que peso/altura mudarem
-  useEffect(() => {
-    if (usuarioLogado.peso && usuarioLogado.altura) {
-      const novoImc =
-        usuarioLogado.peso / (usuarioLogado.altura * usuarioLogado.altura);
-      setImc(novoImc);
-    }
-  }, [usuarioLogado.peso, usuarioLogado.altura]);
-
-  async function calcularImc(id: string) {
-    setIsLoading(true);
+  // Busca dados do usuário pelo ID
+  async function getUserById(id: string) {
     try {
       await buscar(
-        `/usuarios/imc/${id}`,
+        `/usuarios/${id}`,
         (dados: Usuario) => {
-          setUsuarioLogado((prev) => ({
-            ...prev,
-            ...dados,
-            imc: dados.imc,
-          }));
+          dados.senha = "";
+          setUsuarioLogado(dados);
           setImc(dados.imc ?? null);
         },
         {
@@ -41,31 +34,37 @@ function PerfilPlus() {
       );
     } catch (error: any) {
       if (String(error).includes("401")) {
-        ToastAlerta("Tem q estar logado", "info");
+        ToastAlerta("Tem que estar logado", "info");
         handleLogout();
       }
     }
-    setIsLoading(false);
   }
 
-  async function getUserById(id: string) {
+  // Chama backend para calcular IMC
+  async function calcularImc(id: string) {
+    setIsLoading(true);
     try {
       await buscar(
-        `/usuarios/${id}`,
-        (dados: Usuario) => {
-          dados.senha = "";
-          setUsuarioLogado(dados);
+        `/usuarios/imc/${id}`,
+        (valorImc: number) => {
+          setImc(valorImc);
+
+          // Atualiza IMC no estado do usuário
+          setUsuarioLogado((prev) => ({
+            ...prev,
+            imc: valorImc,
+          }));
         },
         {
           headers: { Authorization: usuario.token },
         }
       );
-    } catch (error: any) {
-      if (error.toString().includes("401")) {
-        ToastAlerta("Tem q estar logado", "info");
+    } catch (error: unknown) {
+      if (String(error).includes("401")) {
         handleLogout();
       }
     }
+    setIsLoading(false);
   }
 
   function atualizarEstado(e: ChangeEvent<HTMLInputElement>) {
@@ -129,14 +128,13 @@ function PerfilPlus() {
     }
   }, [id]);
 
-  
-
   return (
     <div className="container mx-auto my-10 flex flex-col gap-4">
       <div className="flex flex-col items-center">
         <h2 className="text-center text-sky-900 font-bold text-4xl">
           Dados de perfil
         </h2>
+
         <div className="flex gap-8 mt-4 items-center">
           <img
             src={
@@ -146,7 +144,8 @@ function PerfilPlus() {
             alt=""
             className="border-4 border-sky-800 rounded-2xl w-56"
           />
-          <div className="">
+
+          <div>
             <p className="font-semibold text-sky-900 text-3xl">
               {usuarioLogado.nome}
             </p>
@@ -158,9 +157,10 @@ function PerfilPlus() {
 
         <hr className="border-sky-900 border w-full my-4" />
 
-        {/* Exibição do IMC */}
+        {/* Bloco de IMC */}
         {(() => {
           const classificacao = classificarIMC(imc);
+
           return (
             <div className="w-1/2 my-4 p-4 border rounded">
               <p className="text-sky-900 font-semibold">
@@ -169,6 +169,7 @@ function PerfilPlus() {
                   {imc !== null ? imc.toFixed(2) : "—"}
                 </span>
               </p>
+
               <div
                 className={`mt-2 inline-block px-3 py-1 rounded ${classificacao.bg}`}
               >
@@ -182,7 +183,8 @@ function PerfilPlus() {
 
         <div className="w-1/2">
           <h2>Atualizar dados</h2>
-          <form className="">
+
+          <form>
             <div className="flex flex-col w-full">
               <label htmlFor="nome">Nome</label>
               <input
@@ -202,8 +204,8 @@ function PerfilPlus() {
                 type="text"
                 name="usuario"
                 id="usuario"
-                placeholder="Seu melhor e-mail"
                 disabled
+                placeholder="Seu melhor e-mail"
                 className="border-2 border-slate-700 rounded p-2"
                 value={usuarioLogado.usuario}
               />
@@ -228,7 +230,6 @@ function PerfilPlus() {
                 name="peso"
                 type="number"
                 step="0.01"
-                min="0"
                 inputMode="decimal"
                 placeholder="Peso em kg"
                 className="border-2 border-slate-700 rounded p-2"
@@ -243,13 +244,23 @@ function PerfilPlus() {
                 name="altura"
                 type="number"
                 step="0.01"
-                min="0"
                 inputMode="decimal"
                 placeholder="Altura em metros"
                 className="border-2 border-slate-700 rounded p-2"
                 value={usuarioLogado.altura}
                 onChange={atualizarEstado}
               />
+            </div>
+
+            <div className="flex items-center mt-4">
+              <button
+                type="button"
+                onClick={() => id && calcularImc(id)}
+                disabled={isLoading}
+                className="bg-indigo-600 hover:bg-indigo-800 text-white font-bold py-2 px-4 rounded-lg disabled:opacity-50"
+              >
+                {isLoading ? "Buscando..." : "Calcular IMC (Backend)"}
+              </button>
             </div>
           </form>
         </div>
