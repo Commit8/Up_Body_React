@@ -154,7 +154,7 @@ function FormServico({ onServicoCadastrado }: FormServicoprops) {
           : {}
       }
     >
-      <div className="bg-gradient-to-b from-[#111] via-[#1a1a1a] to-black  shadow-lg rounded-xl p-10 w-[90%] max-w-[600px]">
+      <div className="bg-gradient-to-b opacity-80 from-[#111] via-[#1a1a1a] to-black  shadow-lg rounded-xl p-10 w-[90%] max-w-[600px]">
         <h1 className="text-4xl text-center my-8 text-white">
           {id !== undefined ? "Editar Serviço" : "Cadastrar Serviço"}
         </h1>
