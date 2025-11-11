@@ -18,7 +18,7 @@ function ModalServico({ onServicoCadastrado }: ModalServicoprops) {
     <>
       {/* AGORA o botão é fora do Popup */}
       <button
-        className="border rounded px-4 py-2 font-semibold bg-linear-to-r from-yellow-500 to-green-500 hover:from-yellow-700 hover:to-green-700"
+        className="border rounded px-4 py-2 font-semibold bg-linear-to-r cursor-pointer from-yellow-500 to-green-500 hover:from-yellow-700 hover:to-green-700"
         onClick={() => setIsOpen(true)}
       >
         Novo Serviço

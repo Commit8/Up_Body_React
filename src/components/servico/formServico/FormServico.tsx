@@ -215,8 +215,8 @@ function FormServico({ onServicoCadastrado }: FormServicoprops) {
               type="button"
               onClick={finalizarServico}
               className="w-full py-2 rounded-lg text-white font-semibold
-             bg-gradient-to-r from-amber-500 via-orange-500 to-yellow-400  
-             hover:opacity-90 transition-all"
+             bg-linear-to-r from-amber-500 via-orange-500 to-yellow-400  
+             hover:opacity-80 cursor-pointer"
             >
               Registrar Término
             </button>
@@ -224,7 +224,7 @@ function FormServico({ onServicoCadastrado }: FormServicoprops) {
 
           <button
             type="submit"
-            className="rounded bg-gradient-to-r from-emerald-600 to-cyan-600 hover:bg-indigo-800 text-white font-bold w-full py-2 flex justify-center"
+            className="rounded bg-linear-to-r from-emerald-600 to-cyan-600 hover:opacity-80 text-white font-bold w-full py-2 flex justify-center cursor-pointer"
           >
             {isLoading ? (
               <ClipLoader color="#ffffff" size={24} />
