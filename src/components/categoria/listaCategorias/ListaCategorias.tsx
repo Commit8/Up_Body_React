@@ -73,7 +73,7 @@ function Listacategorias() {
             TRANSFORME SEU CORPO E MENTE
           </h2>
 
-          <p className="mt-3 sm:mt-4 text-gray-200 text-base sm:text-lg md:text-2xl max-w-3xl mx-auto leading-relaxed">
+          <p className="mt-3 sm:mt-4 text-gray-200 text-base sm:text-lg md:text-2xl mx-auto leading-relaxed">
             Encontre as melhores atividades físicas e programas de bem-estar
             para o seu estilo de vida.
           </p>
@@ -111,7 +111,7 @@ function Listacategorias() {
 
         {/* Cards de categorias */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 
-                max-w-7xl mx-auto px-6 sm:px-10 py-8 backdrop-blur-md">
+                max-w-7xl mx-auto px-6 sm:px-10 py-5 backdrop-blur-md">
           {categorias.map((categoria) => (
             <CardCategoria
               key={categoria.id}
