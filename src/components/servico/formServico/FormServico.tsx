@@ -144,12 +144,19 @@ function FormServico({ onServicoCadastrado }: FormServicoprops) {
   }
 
   return (
-    <div className="container flex flex-col mx-auto items-center">
+    <div
+  className="min-h-screen w-full flex items-center justify-center bg-cover bg-center bg-no-repeat"
+  style={{
+    backgroundImage: `linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url('https://i.postimg.cc/KjzFZvyX/personal-training-amberg-gross.jpg')`
+  }}
+>
+  <div className="backdrop-blur-sm bg-white/75 p-10 rounded-xl shadow-lg w-[90%] max-w-[600px]">
+
       <h1 className="text-4xl text-center my-8">
         {id !== undefined ? "Editar Serviço" : "Cadastrar Serviço"}
       </h1>
 
-      <form className="flex flex-col w-1/2 gap-4" onSubmit={enviar}>
+      <form className="flex flex-col w-1/2 gap-4 w-full" onSubmit={enviar}>
         <div className="flex flex-col gap-2">
           <label>Plano</label>
           <input
@@ -218,6 +225,7 @@ function FormServico({ onServicoCadastrado }: FormServicoprops) {
         </button>
       </form>
     </div>
+</div>
   );
 }
 
