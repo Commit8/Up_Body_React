@@ -71,10 +71,10 @@ function DeletarServico() {
 
   return (
     <div className="w-full pt-22 h-screen bg-[url('https://images.unsplash.com/photo-1758506971667-fbaa8942258a?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1170')] bg-cover bg-center">
-      <div className="container rounded-2xl w-1/3 mx-auto bg-gradient-to-b from-[#111] via-[#1a1a1a] to-black opacity-80">
-        <h1 className="text-5xl text-white font-bold text-center my-4 pt-20">Deletar Serviço</h1>
+      <div className="rounded-2xl w-1/2 sm:w-1/3 mx-auto bg-linear-to-b from-[#111] via-[#1a1a1a] to-black opacity-80">
+        <h1 className="text-2xl sm:text-5xl text-white font-bold text-center my-4 pt-20">Deletar Serviço</h1>
 
-        <p className="text-center pt-3 text-white  font-bold mb-4">
+        <p className="text-center pt-3 text-white  font-semibold mb-4">
           Você tem certeza de que deseja apagar o serviço a seguir ?
         </p>
 
@@ -86,13 +86,13 @@ function DeletarServico() {
           </div>
           <div className=" flex gap-8 justify-center pt-4">
             <button
-              className="text-slate-100 mb-8 rounded-2xl bg-green-600 hover:bg-white hover:text-black w-1/4 py-2"
+              className="text-slate-100 mb-8 rounded-2xl bg-green-600 hover:bg-white hover:text-black w-1/3 sm:w-1/4 py-2"
               onClick={retornar}
             >
               Não
             </button>
             <button
-              className="text-slate-100 mb-8 rounded-2xl bg-orange-700 hover:bg-red-600 w-1/4 py-2"
+              className="text-slate-100 mb-8 rounded-2xl bg-orange-700 hover:bg-red-600 w-1/3 sm:w-1/4 py-2"
               onClick={deletarServico}
             >
               {isLoading ? (
