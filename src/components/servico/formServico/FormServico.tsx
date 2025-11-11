@@ -195,12 +195,12 @@ function FormServico({ onServicoCadastrado }: FormServicoprops) {
               className="border p-2 border-slate-800 rounded text-white"
               onChange={(e) => buscarCategoriaPorId(e.currentTarget.value)}
             >
-              <option value="" disabled selected>
+              <option className="text-black" value="" disabled selected >
                 Selecione uma categoria
               </option>
 
               {categorias.map((categoria) => (
-                <option key={categoria.id} value={categoria.id}>
+                <option className="text-black" key={categoria.id} value={categoria.id}>
                   {categoria.tipo}
                 </option>
               ))}
