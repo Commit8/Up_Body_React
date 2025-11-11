@@ -68,10 +68,10 @@ function Cadastro() {
       <img
         src="https://i.imgur.com/lrAjsG5.jpg"
         alt="Fundo de atividades"
-        className="absolute inset-0 w-full h-full object-cover brightness-50 blur-sm"
+        className="absolute inset-0 w-full h-full object-cover"
       />
       {/* Overlay para escurecer */}
-      <div className="absolute inset-0 bg-black/30 backdrop-blur-sm" />
+      <div className="absolute inset-0 bg-black/30" />
       
       <form onSubmit={cadastrar} className="relative z-10 flex flex-col gap-3 w-3/4 max-w-md bg-black/50 backdrop-blur-md p-6 rounded-xl shadow-lg">
         <h2 className="text-4xl font-bold text-slate-100 text-center">
