@@ -10,6 +10,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { ClipLoader } from "react-spinners";
 import { AuthContext } from "../../contexts/AuthContext";
 import type UsuarioLogin from "../../models/UsuarioLogin";
+import upbodylogo from '../../assets/upbodylogo.png';
 
 function Login() {
     const navigate = useNavigate();
@@ -40,68 +41,71 @@ function Login() {
 
     return (
         <>
-            <div className="grid grid-cols-1 lg:grid-cols-2 h-screen place-items-center font-bold ">
+            <div className="min-h-screen flex items-center justify-center bg-gradient-to-b from-[#111] via-[#1a1a1a] to-black">
+                {/* style={{ backgroundImage: "url('URL_DA_SUA_IMAGEM_AQUI')" }} */}
                 <form
-                    className="flex justify-center items-center flex-col w-1/2 gap-4"
+                    className="flex flex-col w-full max-w-md gap-4 bg-whit bg-opacity-50 p-8 rounded-lg shadow-lg"
                     onSubmit={login}
                 >
-                    <h2 className="text-slate-900 text-5xl ">Entrar</h2>
+                    {/* LOGO AQUI */}
+                         <img src={upbodylogo} alt="Logo da UpBody" className="w-32 sm:w-40 md:w-48" style={{ width: '150px', height: 'auto', transform: 'translateX(110px)'}} /> 
+                    <h2
+                        className="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r bg-linear-to-r from-red-500 via-yellow-500 to-green-500 text-center">
+                        Login
+
+                    </h2>
+                
                     <div className="flex flex-col w-full">
-                        <label htmlFor="usuario">Usuário</label>
-                        <input
-                            type="text"
-                            id="usuario"
-                            name="usuario"
-                            placeholder="Usuario"
-                            className="border-2 border-slate-700 rounded p-2"
-                            value={usuarioLogin.usuario}
-                            onChange={(e: ChangeEvent<HTMLInputElement>) =>
-                                atualizarEstado(e)
-                            }
-                        />
-                    </div>
-                    <div className="flex flex-col w-full">
-                        <label htmlFor="senha">Senha</label>
-                        <input
-                            type="password"
-                            id="senha"
-                            name="senha"
-                            placeholder="Senha"
-                            className="border-2 border-slate-700 rounded p-2"
-                            value={usuarioLogin.senha}
-                            onChange={(e: ChangeEvent<HTMLInputElement>) =>
-                                atualizarEstado(e)
-                            }
-                        />
-                    </div>
+    <label htmlFor="usuario" className="text-white">Usuário</label>
+    <input
+        type="text"
+        id="usuario"
+        name="usuario"
+        placeholder="Usuário"
+        className="border-2 border-white text-white placeholder:text-gray-400 rounded p-2"
+        value={usuarioLogin.usuario}
+        onChange={(e) => atualizarEstado(e)}
+    />
+</div>
+
+<div className="flex flex-col w-full">
+    <label htmlFor="senha" className="text-white">Senha</label>
+    <input
+        type="password"
+        id="senha"
+        name="senha"
+        placeholder="Senha"
+        className="border-2 border-white  text-white placeholder:text-gray-400 rounded p-2"
+        value={usuarioLogin.senha}
+        onChange={(e) => atualizarEstado(e)}
+    />
+</div>
                     <button
                         type="submit"
-                        className="rounded bg-indigo-400 flex justify-center
-                                   hover:bg-indigo-900 text-white w-1/2 py-2"
+                        className="bg-gradient-to-r from-red-500 via-yellow-500 to-green-500 text-white font-semibold py-2 rounded flex justify-center items-center gap-2 transition-transform duration-300 hover:scale-125"
                     >
                         {isLoading ? (
-                            <ClipLoader color="#ffffff" size={24} />
+                            <ClipLoader color="#ffffff" size={28} />
                         ) : (
                             <span>Entrar</span>
                         )}
                     </button>
 
-                    <hr className="border-slate-800 w-full" />
+                    <hr className="transition-transform duration-300 hover:scale-100  " />
 
-                    <p>
-                        Ainda não tem uma conta?{" "}
+                    <p className = "text-underline text-cen text-white">
+                     Ainda não tem uma conta?{" "}
+                            
                         <Link
                             to="/cadastro"
-                            className="text-indigo-800 hover:underline"
+                            className="text-green-600 hover:underline "
                         >
                             Cadastre-se
                         </Link>
+
+                
                     </p>
                 </form>
-                <div
-                    className="bg-[url('https://i.imgur.com/ZZFAmzo.jpg')] lg:block hidden bg-no-repeat 
-                            w-full min-h-screen bg-cover bg-center"
-                ></div>
             </div>
         </>
     );
