@@ -1,7 +1,4 @@
-import {
-    EnvelopeSimpleIcon,
-    GithubLogoIcon,
-} from "@phosphor-icons/react";
+import {GithubLogoIcon} from "@phosphor-icons/react";
 import logo from "../../assets/commit8logo.png";
 import type { ReactNode } from "react";
 
@@ -12,7 +9,7 @@ function Footer() {
         <footer
             className="w-full bg-[linear-gradient(135deg,#333333_20%,#4F4F4F_60%,#6D6D6D_100%)] text-white text-sm py-3"
         >
-            <div className="max-w-full mx-auto flex items-center justify-between px-6" >
+            <div className="max-w-full mx-auto flex items-center justify-between px-6 my-1" >
                 {/* "max-w-full mx-auto flex items-center justify-between px-6" */}
                 <div className="flex items-center gap-4">
                     <img
@@ -21,7 +18,7 @@ function Footer() {
                         className="w-9 h-9 object-contain"
                     />
                     <p className="font-bold text-base bg-linear-to-r">
-                        UpBody | Copyright: Commit8 {data}
+                        UpBody | &copy; Commit8 {data}
                     </p>
                     
                 </div>
@@ -38,18 +35,7 @@ function Footer() {
                             weight="bold"
                             className="transition-transform duration-300 hover:scale-125"
                         />
-                    </a>
-                    <a
-                        href="mailto:devteam01.js09@gmail.com"
-                        target="_blank"
-                        rel="noreferrer"
-                    >
-                        <EnvelopeSimpleIcon
-                            size={24}
-                            weight="bold"
-                            className="transition-transform duration-300 hover:scale-125"
-                        />
-                    </a>
+                    </a>                    
                 </div>
             </div>
         </footer>

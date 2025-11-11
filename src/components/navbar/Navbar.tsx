@@ -78,7 +78,7 @@ function Navbar() {
       className="w-full flex bg-[linear-gradient(135deg,#333333_20%,#4F4F4F_60%,#6D6D6D_100%)] 
                  text-white font-yusei md:px-4 lg:px-6"
     >
-      <div className="container flex justify-between text-lg mx-8">
+      <div className="container flex justify-between text-lg mx-auto">
         <Link
           to="/home"
           className={`flex items-center space-x-2 text-3xl bg-linear-to-r from-red-500 via-yellow-500 to-green-500 bg-clip-text text-transparent font-bold ${
