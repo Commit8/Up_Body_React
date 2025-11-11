@@ -119,7 +119,7 @@ function Cadastro() {
 
         <input
           name="altura"
-          placeholder="Altura em centímetros (M)"
+          placeholder="Altura (m)"
           step="0.01" 
           type="number"
           min="0"
