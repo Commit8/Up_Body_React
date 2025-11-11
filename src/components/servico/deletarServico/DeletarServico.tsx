@@ -88,13 +88,13 @@ function DeletarServico() {
           </div>
           <div className="flex">
             <button
-              className="text-slate-100 bg-black hover:bg-red-800 w-full py-2"
+              className="text-slate-100 bg-black hover:bg-white hover:text-black w-full py-2"
               onClick={retornar}
             >
               Não
             </button>
             <button
-              className="text-slate-100 bg-red-700 hover:bg-red-800 w-full py-2"
+              className="text-slate-100 bg-red-700 hover:bg-red-600 w-full py-2"
               onClick={deletarServico}
             >
               {isLoading ? (
