@@ -6,15 +6,71 @@ import { ToastAlerta } from "../../utils/ToastAlerta";
 
 function Navbar() {
   const [isNavOpen, setIsNavOpen] = useState(false);
-
   const navigate = useNavigate();
-
   const { usuario, handleLogout } = useContext(AuthContext);
 
   function logout() {
     handleLogout();
     ToastAlerta("O usuário foi desconectado com sucesso!", "info");
     navigate("/");
+  }
+
+  let menu;
+  if (usuario.token !== "") {
+    menu = (
+      <>
+        <Link
+          to="/servicos"
+          className="px-1 py-1 rounded-md border-2 border-transparent hover:border-black hover:bg-black hover:text-white transition-all"
+          onClick={() => setIsNavOpen(false)}
+        >
+          Serviços
+        </Link>
+        <Link
+          to="/categorias"
+          className="px-1 py-1 rounded-md border-2 border-transparent hover:border-black hover:bg-black hover:text-white transition-all"
+          onClick={() => setIsNavOpen(false)}
+        >
+          Categorias
+        </Link>
+        <Link
+          to={`/perfilplus/${usuario.id}`}
+          className="px-1 py-1 rounded-md border-2 border-transparent hover:border-black hover:bg-black hover:text-white transition-all"
+          onClick={() => setIsNavOpen(false)}
+        >
+          Perfil
+        </Link>
+        <Link
+          to=""
+          className="px-1 py-1 rounded-md border-2 border-transparent hover:border-black hover:bg-black hover:text-white transition-all"
+          onClick={() => {
+            logout();
+            setIsNavOpen(false);
+          }}
+        >
+          Sair
+        </Link>
+      </>
+    );
+  } else {
+    menu = (
+      <>
+        <Link
+          to="/home"
+          className="px-2 py-1 rounded-md border-2 border-transparent hover:border-black hover:bg-black hover:text-white transition-all"
+          onClick={() => setIsNavOpen(false)}
+        >
+          Home
+        </Link>
+        <Link
+          to="/login"
+          className="px-2 py-1 rounded-md border-2 border-transparent hover:border-black hover:bg-black hover:text-white transition-all"
+          onClick={() => setIsNavOpen(false)}
+        >
+          Login
+        </Link>
+      </>
+    );
   }
 
   return (
@@ -25,7 +81,7 @@ function Navbar() {
       <div className="container flex justify-between text-lg mx-8">
         <Link
           to="/home"
-          className={`flex items-center space-x-2 text-3xl bg-linear-to-r from-red-500 via-yellow-500 to-green-500 bg-clip-text text-transparent text font-bold ${
+          className={`flex items-center space-x-2 text-3xl bg-linear-to-r from-red-500 via-yellow-500 to-green-500 bg-clip-text text-transparent font-bold ${
             !isNavOpen ? "block" : "hidden"
           } sm:flex`}
         >
@@ -36,106 +92,23 @@ function Navbar() {
           />
           UpBody
         </Link>
+
         <div className="sm:hidden">
           <div
-            className="cursor-pointer hover:text-[#27292D] absolute top-0 right-0 px-6 py-6 z-11"
+            className="cursor-pointer hover:text-white absolute top-0 right-0 px-6 py-6 z-20"
             onClick={() => setIsNavOpen((prev) => !prev)}
           >
             {isNavOpen ? <XIcon size={32} /> : <ListIcon size={32} />}
           </div>
+
           <div className={isNavOpen ? "mostraMenuNav" : "escondeMenuNav"}>
-            <div className="flex flex-col text-[##333333] gap-8">
-              <Link
-                to="/servicos"
-                className="hover:text-[#27292D] transition-colors"
-                onClick={() => setIsNavOpen(false)}
-              >
-                Serviços
-              </Link>
-              <Link
-                to="/categorias"
-                className="hover:text-[#27292D] transition-colors"
-                onClick={() => setIsNavOpen(false)}
-              >
-                Categorias
-              </Link>
-              <Link
-                to="/login"
-                className="hover:text-[#27292D] transition-colors"
-                onClick={() => setIsNavOpen(false)}
-              >
-                Login
-              </Link>
-
-              <Link
-                to="/perfil"
-                className="hover:text-[#27292D] transition-colors"
-                onClick={() => setIsNavOpen(false)}
-              >
-                Perfil
-              </Link>
-
-              <Link
-                to=""
-                className="hover:text-[#27292D] transition-colors"
-                onClick={() => {
-                  logout();
-                  setIsNavOpen(false);
-                }}
-              >
-                Sair
-              </Link>
-            </div>
+            <div className="flex flex-col text-white gap-8">{menu}</div>
           </div>
         </div>
 
-        <div className="hidden sm:flex gap-8 items-center ">
-          <Link
-            to="/servicos"
-            className="px-2 py-1 rounded-md border-2 border-transparent hover:border-black hover:bg-black
-             hover:text-white transition-all"
-            onClick={() => setIsNavOpen(false)}
-          >
-            Serviços
-          </Link>
-          <Link
-            to="/categorias"
-            className="px-2 py-1 rounded-md border-2 border-transparent hover:border-black hover:bg-black
-           hover:text-white transition-all"
-            onClick={() => setIsNavOpen(false)}
-          >
-            Categorias
-          </Link>
-          <Link
-            to="/login"
-            className="px-2 py-1 rounded-md border-2 border-transparent hover:border-black hover:bg-black 
-            hover:text-white transition-all"
-            onClick={() => setIsNavOpen(false)}
-          >
-            Login
-          </Link>
-          <Link
-            to={`/perfilplus/${usuario.id}`}
-            className="px-2 py-1 rounded-md border-2 border-transparent hover:border-black hover:bg-black 
-            hover:text-white transition-all"
-            onClick={() => setIsNavOpen(false)}
-          >
-            perfil
-          </Link>
-           
-          <Link
-            to=""
-            className="px-2 py-1 rounded-md border-2 border-transparent hover:border-black hover:bg-black 
-            hover:text-white transition-all"
-            onClick={() => {
-              logout();
-              setIsNavOpen(false);
-            }}
-          >
-            Sair
-          </Link>
-        </div>
+        <div className="hidden sm:flex gap-8 items-center">{menu}</div>
       </div>
+
       <style>
         {`
         .escondeMenuNav{
