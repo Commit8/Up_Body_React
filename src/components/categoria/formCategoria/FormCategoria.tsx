@@ -89,16 +89,16 @@ function FormCategoria() {
     retornar();
   }
   return (
-    <div className="container flex flex-col items-center justify-center mx-auto">
-      <h1 className="text-4xl text-center my-8">
+    <div className="w-full flex items-center justify-center mx-auto my-20">
+      <div className="w-[1/2] flex flex-col justify-center items-center py-10">
+        <h1 className="text-4xl text-center my-8 w-full font-semibold">
         {id === undefined ? "Cadastrar categoria" : "Editar categoria"}
       </h1>
 
-      <form className="w-1/2 flex flex-col gap-4" onSubmit={gerarNovaCategoria}>
+      <form className="w-1/2 flex flex-col gap-4 w-full" onSubmit={gerarNovaCategoria}>
         <div className="flex flex-col gap-2">
-          <label htmlFor="tipo">Diga o tipo de exercicio</label>
 
-          <label htmlFor="tipo">Tipo</label>
+          <label htmlFor="tipo" className="font-semibold text-xl">Tipo de Exercício</label>
           <input
             type="text"
             placeholder="Descreva aqui o tipo de exercício"
@@ -109,7 +109,31 @@ function FormCategoria() {
           />
         </div>
         <button
-          className="rounded text-slate-100 bg-indigo-400 hover:bg-indigo-800 w-1/2 py-2 mx-auto flex justify-center"
+          className="
+            relative 
+            w-1/2 
+            py-2 
+            mx-auto 
+            flex 
+            justify-center 
+            rounded-md 
+          text-slate-100 
+            bg-linear-to-r 
+          from-blue-500 
+          to-purple-500 
+            transition-all 
+            duration-500 
+            ease-out
+            before:absolute 
+            before:inset-0 
+            before:rounded-md 
+            before:border-2 
+            before:border-transparent 
+            before:transition-all 
+            before:duration-500 
+          hover:before:border-[rgb(246,171,59)]
+            hover:shadow-[0_0_20px_rgba(246,171,59,0.6),0_0_40px_rgba(168,10,10,0.4)]
+          "
           type="submit"
         >
           {isLoading ? (
@@ -119,6 +143,7 @@ function FormCategoria() {
           )}
         </button>
       </form>
+      </div>
     </div>
   );
 }

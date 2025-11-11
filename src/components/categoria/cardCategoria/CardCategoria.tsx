@@ -1,3 +1,11 @@
+// #DE2D30 - vermelho
+// #EF942A - laranja
+// #79BE48 - verde
+// #3F9FC1 - azul
+// #4B4A9C - violeta
+// #57417F - roxo
+// #B93A6F - rosa
+
 import type Categoria from "../../../models/Categoria";
 
 interface CardCategoriaProps {
@@ -12,25 +20,25 @@ function CardCategoria({ categoria, onEditar, onDeletar}: CardCategoriaProps) {
   return (
       <div
     key={categoria.id}
-    className="bg-[#222]/80 border border-[#FF7F50]/40 rounded-2xl p-6 shadow-md text-center flex flex-col justify-between transition hover:scale-105 hover:shadow-orange-500/30"
+    className="bg-[#222]/80 border border-[#FF7F50]/40 rounded-2xl p-6 shadow-md text-center flex flex-col justify-between transition hover:shadow-orange-500/30"
   >
     <div>
       {/* Ícone genérico (opcional: personalize conforme tipo) */}
       <div className="text-4xl mb-4 text-orange-400">🏋️‍♂️</div>
       <h3 className="text-xl font-semibold text-white mb-2">{categoria.servico}</h3>
-      <p className="text-gray-400 text-sm mb-6">{categoria.tipo}</p>
+      <p className="text-[#FAF9F6] font-semibold text-sm mb-6">{categoria.tipo}</p>
     </div>
 
     <div className="flex justify-center gap-2">
       <button
         onClick={() => onEditar(categoria.id)}
-        className="bg-linear-to-r from-blue-500 to-purple-500 text-white text-sm px-3 py-1 rounded-md hover:opacity-90"
+        className="bg-linear-to-r from-[#3F9FC1] to-[#4B4A9C] text-white text-sm px-3 py-1 rounded-md hover:opacity-90"
       >
         Editar
       </button>
       <button
         onClick={() => onDeletar(categoria.id)}
-        className="bg-linear-to-r from-red-500 to-orange-500 text-white text-sm px-3 py-1 rounded-md hover:opacity-90"
+        className="bg-linear-to-r from-[#DE2D30] to-[#B93A6F] text-white text-sm px-3 py-1 rounded-md hover:opacity-90"
       >
         Deletar
       </button>

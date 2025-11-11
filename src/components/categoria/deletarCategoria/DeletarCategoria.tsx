@@ -83,7 +83,7 @@ function DeletarCategoria() {
         <p className="p-8 text-3xl bg-slate-200 h-full">{categoria.tipo}</p>
         <div className="flex">
           <button
-            className="text-slate-100 bg-red-400 hover:bg-red-600 w-full py-2"
+            className="text-slate-100 bg-linear-to-r from-red-500 to-orange-500 hover:bg-red-600 w-full py-2"
             onClick={retornar}
           >
             Não
