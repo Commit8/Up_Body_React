@@ -89,21 +89,21 @@ function FormCategoria() {
     retornar();
   }
   return (
-    <div className="w-full flex items-center justify-center mx-auto my-20">
-      <div className="w-[1/2] flex flex-col justify-center items-center py-10">
-        <h1 className="text-4xl text-center my-8 w-full font-semibold">
+    <div className="w-full h-screen flex items-center justify-center mx-auto pb-20 bg-[url('https://ik.imagekit.io/Disturbedmoss/SenhoresPraticandoExercicio.png?updatedAt=1762871096155')] bg-cover bg-center bg-no-repeat">
+      <div className="w-[4/5] flex flex-col justify-center items-center px-5 pb-10 bg-[#222]/80 border border-[#FF7F50]/40 rounded-2xl">
+        <h1 className="text-4xl text-center my-8 w-full font-semibold text-[#FAF9F6]">
         {id === undefined ? "Cadastrar categoria" : "Editar categoria"}
       </h1>
 
       <form className="w-1/2 flex flex-col gap-4 w-full" onSubmit={gerarNovaCategoria}>
         <div className="flex flex-col gap-2">
 
-          <label htmlFor="tipo" className="font-semibold text-xl">Tipo de Exercício</label>
+          <label htmlFor="tipo" className="font-semibold text-xl text-[#FAF9F6]">Tipo de Exercício</label>
           <input
             type="text"
             placeholder="Descreva aqui o tipo de exercício"
             name="tipo"
-            className="border-2 border-slate-700 rounded p-2"
+            className="border-2 border-slate-800 rounded p-2 text-[#FAF9F6]"
             value={categoria.tipo}
             onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
           />

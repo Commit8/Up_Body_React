@@ -71,33 +71,45 @@ function DeletarCategoria() {
   }
 
   return (
-    <div className="container w-1/3 mx-auto">
-      <h1 className="text-4xl text-center my-4">Deletar categoria</h1>
-      <p className="text-center font-semibold mb-4">
-        Você tem certeza de que deseja apagar a categoria a seguir?
-      </p>
-      <div className="border flex flex-col rounded-2xl overflow-hidden justify-between">
-        <header className="py-2 px-6 bg-indigo-600 text-white font-bold text-2xl">
-          Categoria
-        </header>
-        <p className="p-8 text-3xl bg-slate-200 h-full">{categoria.tipo}</p>
-        <div className="flex">
-          <button
-            className="text-slate-100 bg-linear-to-r from-red-500 to-orange-500 hover:bg-red-600 w-full py-2"
-            onClick={retornar}
-          >
-            Não
-          </button>
-          <button
-            className="text-slate-100 bg-indigo-400 hover:bg-indigo-600 w-full flex items-center justify-center py-2"
-            onClick={deletarCategoria}
-          >
-            {isLoading ? (
-              <ClipLoader color="#fff" size={24} />
-            ) : (
-              <span>Sim</span>
-            )}
-          </button>
+    <div className="w-full h-screen flex items-center justify-center mx-auto pb-20 bg-linear-to-b from-[#1A1A1A] via-[#0f0f0f] to-black">
+      <div className="w-[4/5] flex flex-col justify-center items-center px-5 pb-10 bg-[#222]/80 rounded-2xl">
+        <h1 className="font-bold text-4xl text-center my-4 text-[#FAF9F6]">
+          Deletar Categoria
+        </h1>
+        <p className="text-center font-semibold mb-4 text-[#FAF9F6]">
+          Você tem certeza de que deseja apagar a categoria a seguir?
+        </p>
+
+        <div
+          key={categoria.id}
+          className="bg-[#222]/80 rounded-2xl p-6 shadow-md text-center flex flex-col justify-between"
+        >
+          <div>
+            {/* Ícone genérico (opcional: personalize conforme tipo) */}
+            <div className="text-4xl mb-4 text-orange-400">🏋️‍♂️</div>
+            <p className="text-[#FAF9F6] font-semibold text-xl mb-6">
+              {categoria.tipo}
+            </p>
+          </div>
+
+          <div className="flex justify-center gap-2">
+            <button
+              className="text-white px-5 w-full py-1 rounded-md hover:opacity-90 bg-green-600 hover:bg-green-800"
+              onClick={retornar}
+            >
+              Não
+            </button>
+            <button
+              className="text-white px-5 w-full py-1 rounded-md hover:opacity-90 bg-orange-700 hover:bg-orange-900"
+              onClick={deletarCategoria}
+            >
+              {isLoading ? (
+                <ClipLoader color="#fff" size={24} />
+              ) : (
+                <span>Sim</span>
+              )}
+            </button>
+          </div>
         </div>
       </div>
     </div>
