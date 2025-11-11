@@ -82,7 +82,7 @@ function Login() {
 </div>
                     <button
                         type="submit"
-                        className="bg-gradient-to-r from-red-500 via-yellow-500 to-green-500 text-white font-semibold py-2 rounded flex justify-center items-center gap-2 transition-transform duration-300 hover:scale-125"
+                        className="bg-gradient-to-r from-red-500 via-yellow-500 to-green-500 text-white font-semibold py-2 rounded flex justify-center items-center gap-2 transition-transform duration-300 hover:scale-105"
                     >
                         {isLoading ? (
                             <ClipLoader color="#ffffff" size={28} />
