@@ -155,13 +155,13 @@ function FormServico({ onServicoCadastrado }: FormServicoprops) {
           : {}
       }
     >
-      <div className="bg-white shadow-lg rounded-xl p-10 w-[90%] max-w-[600px]">
-        <h1 className="text-4xl text-center my-8 text-black">
+      <div className="bg-gradient-to-b from-[#111] via-[#1a1a1a] to-black  shadow-lg rounded-xl p-10 w-[90%] max-w-[600px]">
+        <h1 className="text-4xl text-center my-8 text-white">
           {id !== undefined ? "Editar Serviço" : "Cadastrar Serviço"}
         </h1>
 
         <form
-          className="flex flex-col gap-4 w-full text-black"
+          className="flex flex-col gap-4 w-full text-white"
           onSubmit={enviar}
         >
           <div className="flex flex-col gap-2">
@@ -172,7 +172,7 @@ function FormServico({ onServicoCadastrado }: FormServicoprops) {
               value={servico.plano}
               onChange={atualizarEstado}
               required
-              className="border-2 border-slate-700 rounded p-2 text-black"
+              className="border-2 border-slate-700 rounded p-2 text-white"
             />
           </div>
 
@@ -185,14 +185,14 @@ function FormServico({ onServicoCadastrado }: FormServicoprops) {
               value={servico.valor}
               onChange={atualizarEstado}
               required
-              className="border-2 border-slate-700 rounded p-2 text-black"
+              className="border-2 border-slate-700 rounded p-2 text-white"
             />
           </div>
 
-          <div className="flex flex-col gap-2 text-black">
+          <div className="flex flex-col gap-2 text-white">
             <p>Categoria</p>
             <select
-              className="border p-2 border-slate-800 rounded text-black"
+              className="border p-2 border-slate-800 rounded text-white"
               onChange={(e) => buscarCategoriaPorId(e.currentTarget.value)}
             >
               <option value="" disabled selected>
@@ -211,8 +211,9 @@ function FormServico({ onServicoCadastrado }: FormServicoprops) {
             <button
               type="button"
               onClick={finalizarServico}
-              className="rounded bg-emerald-600 hover:bg-emerald-800 
-                      text-white font-bold w-full py-2 flex justify-center"
+              className="w-full py-2 rounded-lg text-white font-semibold
+             bg-gradient-to-r  from-amber-500 via-orange-500 to-yellow-400  
+             hover:opacity-90 transition-all"
             >
               Registrar Término
             </button>
@@ -220,7 +221,7 @@ function FormServico({ onServicoCadastrado }: FormServicoprops) {
 
           <button
             type="submit"
-            className="rounded bg-indigo-600 hover:bg-indigo-800 text-white font-bold w-full py-2 flex justify-center"
+            className="rounded bg-gradient-to-r from-emerald-600 to-cyan-600 hover:bg-indigo-800 text-white font-bold w-full py-2 flex justify-center"
           >
             {isLoading ? (
               <ClipLoader color="#ffffff" size={24} />
