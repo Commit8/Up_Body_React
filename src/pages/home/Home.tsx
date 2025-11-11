@@ -36,7 +36,7 @@ export default function HomePage() {
          <section className="py-16 text-center">
            <h3 className="pt-5 text-4xl font-bold mb-8">O que dizem nossos usuários</h3>
 
-        <div className="pt-10 grid text-2xl md:grid-cols-4 gap-6 px-6 md:px-20">
+        <div className="pt-10 grid text-2xl md:grid-cols-2 lg:grid-cols-4 gap-6 px-6">
        <div className="bg-orange-400/50 border-3 flex flex-col justify-between text-slate-800 rounded-2xl p-10">
       <p>“Vivo mais saudável e com mais energia!”</p>
       <span className="block font-bold mt-3">Ana S.</span>
@@ -71,22 +71,22 @@ export default function HomePage() {
 
             {/* CARD 1 */}
             <div className="flex items-center gap-6 rounded-2xl border-4 border-yellow-500 shadow-md ">
-              <div className="flex justify-center items-center rounded-l-2xl">
+              <div className="flex justify-center md:h-48 lg:w-29 bg-[#ffffff] items-center rounded-l-xl">
                 <img
                   src="https://i.imgur.com/J6KHpTD.png"
                   alt="Download"
-                  className="w-32 h-32 object-contain"
+                  className="w-22 h-32 object-contain"
                 />
               </div>
               <div className="justify-center flex flex-col">
-                <h3 className="text-2xl font-bold">Download gratuito</h3>
-                <p className="text-[#3d3d3d] text-2xl">Baixe o aplicativo ou acesse o site</p>
+                <h3 className="text-2xl font-bold text-white">Download gratuito</h3>
+                <p className="text-gray-400 text-2xl">Baixe o aplicativo ou acesse o site.</p>
               </div>
             </div>
 
             {/* CARD 2 */}
-            <div className="bg-white flex items-center gap-6 rounded-2xl border-4 border-fuchsia-700 shadow-md">
-              <div className="bg-[#ffffff] flex justify-center items-center rounded-l-2xl">
+            <div className=" flex items-center gap-6 rounded-2xl border-4 border-fuchsia-700 shadow-md">
+              <div className="bg-[#ffffff] flex h-48 w-40 justify-center items-center rounded-l-xl">
                 <img
                   src="https://i.imgur.com/LBuikzh.png"
                   alt="Planos"
@@ -94,14 +94,14 @@ export default function HomePage() {
                 />
               </div>
               <div className="justify-center flex flex-col">
-                <h3 className="text-2xl font-bold ">Planos personalizados</h3>
-                <p className="text-[#3d3d3d] text-2xl">Escolha o plano que mais se encaixa com seu objetivo atual</p>
+                <h3 className="text-2xl text-white font-bold ">Planos personalizados</h3>
+                <p className="text-gray-400 text-2xl">Escolha o plano que mais se encaixa com seu objetivo atual.</p>
               </div>
             </div>
 
             {/* CARD 3 */}
-            <div className="bg-white flex items-center gap-6 rounded-2xl border-4 border-blue-800 shadow-md">
-              <div className="bg-[#ffffff] flex justify-center items-center rounded-l-2xl">
+            <div className="flex items-center gap-6 rounded-2xl border-4 border-blue-800 shadow-md">
+              <div className="bg-[#ffffff] h-48 w-40 md:h-56 md:w-43 flex justify-center items-center rounded-l-xl">
                 <img
                   src="https://i.imgur.com/4rVue9Q.png"
                   alt="Pagamento"
@@ -109,23 +109,23 @@ export default function HomePage() {
                 />
               </div>
               <div className="justify-center flex flex-col">
-                <h3 className="text-2xl font-bold">Pagamento simplificado</h3>
-                <p className="text-[#3d3d3d] text-2xl">Selecione o plano de pagamento: mensal, semestral ou anual</p>
+                <h3 className="text-2xl text-white font-bold">Pagamento simplificado</h3>
+                <p className="text-gray-400 text-2xl">Selecione o plano de pagamento: mensal, semestral ou anual.</p>
               </div>
             </div>
 
             {/* CARD 4 */}
-            <div className="bg-white flex items-center gap-6 rounded-2xl border-4 border-emerald-700 shadow-md">
-              <div className="bg-[#ffffff] flex justify-center items-center rounded-l-2xl">
+            <div className="flex items-center gap-6 rounded-2xl border-4 border-emerald-700 shadow-md">
+              <div className="bg-[#ffffff] flex h-56 w-34 justify-center items-center rounded-l-xl">
                 <img
                   src="https://i.imgur.com/99lO3Kv.png"
                   alt="Comunidade"
-                  className="w-32 h-32 object-contain"
+                  className="w-26 h-32 object-contain"
                 />
               </div>
               <div className="justify-center flex flex-col">
-                <h3 className="text-2xl font-bold">Junte-se à comunidade Up Body</h3>
-                <p className="text-[#3d3d3d] text-2xl">+ de 1000 usuários se exercitando todos os dias</p>
+                <h3 className="text-2xl text-white font-bold">Junte-se à comunidade Up Body</h3>
+                <p className="text-gray-400 text-2xl">+ de 1000 usuários se exercitando todos os dias.</p>
               </div>
             </div>
           </div>
@@ -133,7 +133,7 @@ export default function HomePage() {
       </div>
 
       {/* Vantagens */}
-        <div className="mb-10 w-full bg-[#3d3d3d] py-30 px-6 text-white mt-16">
+        <div className="w-full bg-radial-[at_87%_75%] from-white to-zinc-500 to-75% py-30 px-6 text-white">
           <h2 className="text-4xl font-bold mb-8 text-center text-shadow-md">
             Vantagens
           </h2>
