@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { buscar, deletar } from "../../../services/Service";
 import { ToastAlerta } from "../../../utils/ToastAlerta";
@@ -71,30 +71,28 @@ function DeletarServico() {
 
   return (
     <div className="w-full pt-22 h-screen bg-[url('https://images.unsplash.com/photo-1758506971667-fbaa8942258a?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1170')] bg-cover bg-center">
-      <div className="container w-1/3 mx-auto">
+      <div className="container rounded-2xl w-1/3 mx-auto bg-gradient-to-b from-[#111] via-[#1a1a1a] to-black opacity-80">
         <h1 className="text-5xl text-white font-bold text-center my-4 pt-20">Deletar Serviço</h1>
 
-        <p className="text-center pt-5 text-white  font-bold mb-4">
+        <p className="text-center pt-3 text-white  font-bold mb-4">
           Você tem certeza de que deseja apagar o serviço a seguir ?
         </p>
 
         <div className="border-b-white flex flex-col rounded-2xl overflow-hidden justify-between">
-          <header className="py-2 px-6 bg-white text-black font-bold text-2xl">
-            Serviço
-          </header>
+       
           <div className="p-4">
-            <p className="text-xl text-white h-full">{servico.plano}</p>
-            <p className="text-white">R$ {servico.valor}</p>
+            <p className="text-xl text-white h-full">Plano: {servico.plano}</p>
+            <p className="text-white text-xl">Valor: R$ {servico.valor}</p>
           </div>
-          <div className="flex">
+          <div className=" flex gap-8 justify-center pt-4">
             <button
-              className="text-slate-100 bg-black hover:bg-white hover:text-black w-full py-2"
+              className="text-slate-100 mb-8 rounded-2xl bg-green-600 hover:bg-white hover:text-black w-1/4 py-2"
               onClick={retornar}
             >
               Não
             </button>
             <button
-              className="text-slate-100 bg-red-700 hover:bg-red-600 w-full py-2"
+              className="text-slate-100 mb-8 rounded-2xl bg-orange-700 hover:bg-red-600 w-1/4 py-2"
               onClick={deletarServico}
             >
               {isLoading ? (
@@ -111,3 +109,8 @@ function DeletarServico() {
 }
 
 export default DeletarServico;
+
+
+
+
+
