@@ -52,7 +52,7 @@ function ListaServico() {
   }, [token]);
 
   return (
-    <div className="flex flex-col justify-center items-center bg-gradient-to-b from-[#111] via-[#1a1a1a] to-black min-h-screen">
+    <div className="flex flex-col justify-center items-center bg-linear-to-b from-[#111] via-[#1a1a1a] to-black min-h-screen">
       <div className="relative w-full h-[220px] md:h-[260px] overflow-hidden flex items-center justify-center">
         {/* Imagem de fundo */}
         <img
@@ -74,7 +74,7 @@ function ListaServico() {
             para o seu estilo de vida.
           </p>
           {/* Botão de cadastrar nova categoria */}
-          <div className="flex justify-center mt-10 mb-8">
+          <div className="flex justify-center mt-10 mb-8 ">
             <ModalServico onServicoCadastrado={() => reloadTrigger.current()} />
           </div>
         </div>
