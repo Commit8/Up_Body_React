@@ -28,7 +28,7 @@ function CardServico({ servico }: CardServicosProps) {
           <hr className="h-0.5 border-0 bg-linear-to-r from-yellow-500 to-green-500" />
           <div className="p-6">
             <h4 className="text-lg font-semibold uppercase">
-              P. {servico.plano}
+             {servico.plano}
             </h4>
             <hr className="h-0.5 border-0 bg-linear-to-r from-yellow-500 to-green-500" />
             <p>Categoria: {servico.categoria?.tipo}</p>
