@@ -50,7 +50,7 @@ function Login() {
                     {/* LOGO AQUI */}
                          <img src={upbodylogo} alt="Logo da UpBody" className="w-32 sm:w-40 md:w-48" style={{ width: '150px', height: 'auto', transform: 'translateX(110px)'}} /> 
                     <h2
-                        className="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r bg-linear-to-r from-red-500 via-yellow-500 to-green-500 text-center">
+                        className="text-3xl font-extrabold text-transparent bg-clip-text git bg-gradient-to-r bg-linear-to-r from-red-500 via-yellow-500 to-green-500 text-center">
                         Login
 
                     </h2>

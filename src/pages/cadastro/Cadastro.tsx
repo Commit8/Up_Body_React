@@ -61,13 +61,20 @@ function Cadastro() {
 
   return (
     <>
-    <div className="grid grid-cols-1 lg:grid-cols-2 h-screen place-items-center">
-    
-      <div className="hidden lg:block bg-[url('https://i.postimg.cc/Xqx1D4Wy/4.png')] bg-cover bg-center w-full h-full" />
-
       
-      <form onSubmit={cadastrar} className="flex flex-col gap-3 w-3/4 max-w-md">
-        <h2 className="text-4xl font-bold text-slate-900 text-center">
+      <div className="relative min-h-screen flex items-center justify-center overflow-hidden">
+
+        {/* Imagem de fundo */}
+      <img
+        src="https://i.imgur.com/lrAjsG5.jpg"
+        alt="Fundo de atividades"
+        className="absolute inset-0 w-full h-full object-cover brightness-50 blur-sm"
+      />
+      {/* Overlay para escurecer */}
+      <div className="absolute inset-0 bg-black/30 backdrop-blur-sm" />
+      
+      <form onSubmit={cadastrar} className="relative z-10 flex flex-col gap-3 w-3/4 max-w-md bg-black/50 backdrop-blur-md p-6 rounded-xl shadow-lg">
+        <h2 className="text-4xl font-bold text-slate-100 text-center">
           Criar Conta
         </h2>
 
@@ -75,7 +82,7 @@ function Cadastro() {
           type="text"
           name="nome"
           placeholder="Nome completo"
-          className="border rounded p-2"
+          className="border border-2 border-white text-white placeholder:text-gray-400 rounded p-2"
           value={usuario.nome}
           onChange={atualizarEstado}
         />
@@ -84,7 +91,7 @@ function Cadastro() {
           type="text"
           name="usuario"
           placeholder="Usuário (login)"
-          className="border rounded p-2"
+          className="border-2 border-white text-white placeholder:text-gray-400 rounded p-2"
           value={usuario.usuario}
           onChange={atualizarEstado}
         />
@@ -93,7 +100,7 @@ function Cadastro() {
           type="text"
           name="foto"
           placeholder="URL da foto"
-          className="border rounded p-2"
+          className="border-2 border-white text-white placeholder:text-gray-400 rounded p-2"
           value={usuario.foto}
           onChange={atualizarEstado}
         />
@@ -105,7 +112,7 @@ function Cadastro() {
           type="number"
           min="0"
           inputMode="decimal"
-          className="border rounded p-2"
+          className="border-2 border-white text-white placeholder:text-gray-400 rounded p-2"
           value={usuario.peso}
           onChange={atualizarEstado}
         />
@@ -117,7 +124,7 @@ function Cadastro() {
           type="number"
           min="0"
           inputMode="decimal"
-          className="border rounded p-2"
+          className="border-2 border-white text-white placeholder:text-gray-400 rounded p-2"
           value={usuario.altura}
           onChange={atualizarEstado}
         />
@@ -126,7 +133,7 @@ function Cadastro() {
           type="password"
           name="senha"
           placeholder="Senha (mín. 8 caracteres)"
-          className="border rounded p-2"
+          className="border-2 border-white text-white placeholder:text-gray-400 rounded p-2"
           value={usuario.senha}
           onChange={atualizarEstado}
         />
@@ -135,21 +142,21 @@ function Cadastro() {
           type="password"
           name="confirmarSenha"
           placeholder="Confirmar senha"
-          className="border rounded p-2"
+          className="border-2 border-white text-white placeholder:text-gray-400 rounded p-2"
           value={confirmarSenha}
           onChange={handleConfirmarSenha}
         />
 
         <button
           type="submit"
-          className="bg-linear-to-r from-orange-400 to-purple-600 text-white font-semibold py-2 rounded flex justify-center"
+          className="bg-gradient-to-r from-red-500 via-yellow-500 to-green-500 text-white font-semibold py-2 rounded flex justify-center hover:scale-105"
         >
           {isLoading ? <ClipLoader size={24} color="#fff" /> : "Cadastrar"}
         </button>
 
         <button
           type="button"
-          className="text-slate-600 underline text-center"
+          className="text-slate-400 underline text-center"
           onClick={() => navigate("/login")}
         >
           Já tenho conta
