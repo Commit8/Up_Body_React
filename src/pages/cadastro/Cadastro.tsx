@@ -17,8 +17,6 @@ function Cadastro() {
     usuario: "",
     senha: "",
     foto: "",
-    peso: "",
-    altura: "",
   });
 
   useEffect(() => {

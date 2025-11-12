@@ -10,10 +10,9 @@ import type Categoria from "../../../models/Categoria";
 
 interface CardCategoriaProps {
   categoria: Categoria;
-  id: number;
   tipo: string;
-  onEditar: () => void;
-  onDeletar: () => void;
+  onEditar: (id: number) => void;
+  onDeletar: (id: number) => void;
 }
 
 function CardCategoria({ categoria, onEditar, onDeletar }: CardCategoriaProps) {
@@ -26,11 +25,8 @@ function CardCategoria({ categoria, onEditar, onDeletar }: CardCategoriaProps) {
         {/* Ícone genérico (opcional: personalize conforme tipo) */}
         <div className="text-4xl mb-4 text-orange-400">🏋️‍♂️</div>
         <h3 className="text-xl font-semibold text-white mb-2">
-          {categoria.servico}
-        </h3>
-        <p className="text-[#FAF9F6] font-semibold text-sm mb-6">
           {categoria.tipo}
-        </p>
+        </h3>
       </div>
 
       <div className="flex justify-center gap-2">
