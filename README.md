@@ -98,10 +98,10 @@ Se você quiser contribuir com o front‑end:
 5. Abra um Pull Request e aguarde revisão.  
 
 ## Back-end disponível:
-([github.com](https://github.com/Commit8/up_body))  
+([Clique aqui para acessar o back-end do projeto](https://github.com/Commit8/up_body))  
 
 ## Licença  
-Este projeto está licenciado sob a licença MIT — consulte o arquivo `LICENSE` para mais detalhes. ([github.com](https://github.com/Commit8/up_body))  
+Este projeto está licenciado sob a licença MIT — consulte o arquivo `LICENSE` para mais detalhes. ([GitHub](https://github.com/Commit8/up_body))  
 
 ## Autores  
 - Akanni Silva  
@@ -114,5 +114,5 @@ Este projeto está licenciado sob a licença MIT — consulte o arquivo `LICENSE
 - Vitor Hugo 
 
 ## Contato  
-Equipe Commit8 —  ([github.com](https://github.com/Commit8/))
+Equipe Commit8 —  ([Contato:](https://github.com/Commit8/))
 Projeto desenvolvido no âmbito do coletivo Commit8 como parte da iniciativa Up Body.
