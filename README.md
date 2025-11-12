@@ -114,5 +114,5 @@ Este projeto está licenciado sob a licença MIT — consulte o arquivo `LICENSE
 - Vitor Hugo 
 
 ## Contato  
-Equipe Commit8 —  ([Contato:](https://github.com/Commit8/))
+Equipe Commit8 —  ([Contato](https://github.com/Commit8/))
 Projeto desenvolvido no âmbito do coletivo Commit8 como parte da iniciativa Up Body.
