@@ -1,5 +1,6 @@
 # Up Body React – Front‑End  
 Interface do cliente da aplicação Up Body (frontend build em React/TypeScript)
+[Acesse o back-end clicando aqui](https://github.com/Commit8/Up_Body)
 
 ## Descrição  
 A parte front‑end do sistema Up Body é construída com React + TypeScript, consumindo a API REST desenvolvida com NestJS no back‑end. O objetivo é oferecer uma interface moderna e responsiva para gerenciar usuários, categorias de serviços, serviços oferecidos, bem‑estar e treinos.  
@@ -96,9 +97,6 @@ Se você quiser contribuir com o front‑end:
 3. Faça as alterações e commit (`git commit ‑m "Add foo feature"`).  
 4. Envie sua branch para o seu fork (`git push origin feature/foo`).  
 5. Abra um Pull Request e aguarde revisão.  
-
-## Back-end disponível:
-([Clique aqui para acessar o back-end do projeto](https://github.com/Commit8/up_body))  
 
 ## Licença  
 Este projeto está licenciado sob a licença MIT — consulte o arquivo `LICENSE` para mais detalhes. ([GitHub](https://github.com/Commit8/up_body))  
