@@ -39,7 +39,7 @@ function PerfilPlus() {
         (dados: Usuario) => {
           setUsuarioLogado({
             ...dados,
-            // nunca traz senha real
+            senha: "",
             peso: dados.peso ?? 0,
             altura: dados.altura ?? 0,
           });
@@ -165,7 +165,10 @@ function PerfilPlus() {
     if (id) getUserById(id);
   }, [id]);
 
+  const ConfirmarSenha = usuarioLogado.senha === ""
+
   return (
+    
     <div className="relative min-h-screen flex items-center justify-center text-gray-100">
       <img
         src="https://i.imgur.com/2QBnQzu.jpeg"
@@ -251,6 +254,14 @@ function PerfilPlus() {
                 onChange={atualizarEstado}
                 className="border border-slate-700 rounded p-2 bg-black/40 text-white"
               />
+              <label>Confirme sua senha</label>
+              <input
+                type="text"
+                name="senha"
+                value={usuarioLogado.senha}
+                onChange={atualizarEstado}
+                className="border border-slate-700 rounded p-2 bg-black/40 text-white"
+              />
 
               <label>Peso (kg)</label>
               <input
@@ -274,8 +285,8 @@ function PerfilPlus() {
 
               <button
                 type="submit"
-                disabled={isLoading}
-                className="bg-gradient-to-r from-green-400 via-blue-900 to-green-400 mb-6 text-white font-bold py-2 px-4 rounded-lg disabled:opacity-50 hover:scale-105 transition-transform duration-300"
+                disabled={ConfirmarSenha}
+                className="bg-linear-to-r from-green-400 via-blue-900 to-green-400 mb-6 text-white font-bold py-2 px-4 rounded-lg disabled:opacity-50 hover:scale-105 transition-transform duration-300"
               >
                 {isLoading ? "Atualizando..." : "Atualizar"}
               </button>
@@ -284,7 +295,7 @@ function PerfilPlus() {
                 type="button"
                 onClick={() => id && calcularImc(id)}
                 disabled={isLoading}
-                className="bg-gradient-to-r from-green-400 via-blue-900 to-green-400 text-white font-bold py-2 px-4 rounded-lg disabled:opacity-50 hover:scale-105 transition-transform duration-300"
+                className="bg-linear-to-r from-green-400 via-blue-900 to-green-400 text-white font-bold py-2 px-4 rounded-lg disabled:opacity-50 hover:scale-105 transition-transform duration-300"
               >
                 {isLoading ? "Calculando..." : "Calcular IMC"}
               </button>
