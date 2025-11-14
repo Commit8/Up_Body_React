@@ -165,10 +165,9 @@ function PerfilPlus() {
     if (id) getUserById(id);
   }, [id]);
 
-  const ConfirmarSenha = usuarioLogado.senha === ""
+  const ConfirmarSenha = usuarioLogado.senha === "";
 
   return (
-    
     <div className="relative min-h-screen flex items-center justify-center text-gray-100">
       <img
         src="https://i.imgur.com/2QBnQzu.jpeg"
@@ -256,7 +255,7 @@ function PerfilPlus() {
               />
               <label>Confirme sua senha</label>
               <input
-                type="text"
+                type="password"
                 name="senha"
                 value={usuarioLogado.senha}
                 onChange={atualizarEstado}
