@@ -80,7 +80,7 @@ function Cadastro() {
           type="text"
           name="nome"
           placeholder="Nome completo"
-          className="border border-2 border-white text-white placeholder:text-gray-400 rounded p-2 w-full"
+          className=" border-2 border-white text-white placeholder:text-gray-400 rounded p-2 w-full"
           value={usuario.nome}
           onChange={atualizarEstado}
         />

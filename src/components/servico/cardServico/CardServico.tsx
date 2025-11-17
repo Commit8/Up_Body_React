@@ -22,7 +22,7 @@ function CardServico({ servico }: CardServicosProps) {
               alt={servico.usuario?.foto}
             />
             <h3 className="text-lg font-bold text-center uppercase">
-              {servico.usuario.nome}
+              {servico.usuario?.nome}
             </h3>
           </div>
           <hr className="h-0.5 border-0 bg-linear-to-r from-yellow-500 to-green-500" />
@@ -55,7 +55,7 @@ function CardServico({ servico }: CardServicosProps) {
             )}
           </div>
         </div>
-        {usuario.id === servico.usuario.id && (
+        {usuario.id === servico.usuario?.id && (
           <div className="flex">
             <Link
               to={`/editarservico/${servico.id}`}
